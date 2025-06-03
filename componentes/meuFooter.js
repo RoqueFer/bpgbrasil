@@ -1,0 +1,37 @@
+
+    class Footer extends HTMLElement {
+        connectedCallBack() {
+            this.innerHTML = `
+            <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Sobre Nós</h3>
+            <p>
+            
+                8=====================================================D :3
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Contato</h3>
+            <ul>
+              <li>Email: bpg.ufpr@gmail.com</li>
+              <li>Universidade Federal do Paraná</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+            `;
+        }
+    }
+    customElements.define('meuFooter', meuFooter);
+
