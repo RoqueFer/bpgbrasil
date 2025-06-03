@@ -6,6 +6,10 @@ a{
   text-align: center;
 }
 
+a:hover{
+  color: darkgray;
+}
+
 
 /* header */
 .container_madeira{
@@ -39,8 +43,10 @@ a{
   grid-template-columns: 3fr 1fr 3fr 1fr 3fr 1fr 3fr 1fr 3fr;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5%
+  padding-inline: 0.5%;
 }
+
+
 
 .divisor{
   color: #b9b9b9;
