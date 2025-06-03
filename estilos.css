@@ -52,3 +52,22 @@ a:hover{
   color: #b9b9b9;
   padding-inline: 50%;
 }
+
+/* normas */
+
+.container-verde{
+  background-color: #C9C6A5;
+  padding-inline: 5%;
+  padding: 3%;
+}
+
+.container-marrom{
+  background-color: #CDC3C3;
+  padding-inline: 2%;
+  padding: 1%;
+}
+
+.font-alegreya{
+  font-family: "Alegreya Sans", sans-serif;
+  font-style: normal;
+}
