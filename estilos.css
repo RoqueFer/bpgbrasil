@@ -38,6 +38,7 @@ a:hover{
   font-family: "Rubik Dirt", monospace;
   font-weight: 400;
   font-style: normal;
+  /* font-size: 4em; */
 }
 
 .container_cinza{
@@ -57,6 +58,25 @@ a:hover{
   padding-inline: 50%;
 }
 
+
+/* normas */
+
+.container-verde{
+  background-color: #C9C6A5;
+  padding-inline: 5%;
+  padding: 3%;
+}
+
+.container-marrom{
+  background-color: #CDC3C3;
+  padding-inline: 2%;
+  padding: 1%;
+}
+
+.font-alegreya{
+  font-family: "Alegreya Sans", sans-serif;
+  font-style: normal;
+=======
 /* footer */
 
 .site-footer {
@@ -146,4 +166,5 @@ a:hover{
 
 .social-links a:hover {
     color: #000000;
+
 }
