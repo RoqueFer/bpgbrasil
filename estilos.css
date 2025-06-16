@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 a{
   text-decoration: none;
   color: #7B836A;
@@ -5,6 +11,7 @@ a{
   font-style: normal;
   text-align: center;
 }
+
 
 a:hover{
   color: darkgray;
@@ -14,6 +21,8 @@ body{
   margin: 0;
 }
 
+
+=======
 
 /* header */
 .container_madeira{
@@ -38,6 +47,7 @@ body{
   font-family: "Rubik Dirt", monospace;
   font-weight: 400;
   font-style: normal;
+  /* font-size: 4em; */
 }
 
 .container_cinza{
@@ -52,9 +62,118 @@ body{
   padding-inline: 0.5%;
 }
 
-
-
 .divisor{
   color: #b9b9b9;
   padding-inline: 50%;
+}
+
+
+/* normas */
+
+.container-verde{
+  background-color: #C9C6A5;
+  padding-inline: 5%;
+  padding: 3%;
+}
+
+.container-marrom{
+  background-color: #CDC3C3;
+  padding-inline: 2%;
+  padding: 1%;
+}
+
+.font-alegreya{
+  font-family: "Alegreya Sans", sans-serif;
+  font-style: normal;
+=======
+/* footer */
+
+.site-footer {
+    background-color: #D9D9D9;
+    color: #fff;
+    padding: 40px 0 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.footer-section p, 
+.footer-section ul {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #000000;
+}
+
+.footer-bottom {
+    border-top: 1px solid #000000;
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #000000;
+    font-size: 14px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #000000;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #000000;
+
 }
