@@ -1,0 +1,121 @@
+/* ARQUIVO: css/base.css */
+
+/* --- 1. CONFIGURAÇÕES GLOBAIS E RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D3D3B5;
+    font-family: 'Alegreya Sans', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* --- 2. HEADER (Componente Comum) --- */
+header {
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container_madeira {
+    background-image: url("../logos/fundo_header.svg"); /* ATENÇÃO: o caminho mudou para ../ */
+    background-color: #EAEAEA;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 20px;
+}
+
+.logo-link {
+    line-height: 0;
+}
+
+.logo-link img {
+    border: none;
+}
+
+.header_font {
+    font-family: "Rubik Dirt", system-ui;
+    font-weight: 400;
+    font-size: clamp(1.5em, 4vw, 2.5em);
+    color: #4A4A4A;
+}
+
+.container_cinza {
+    background-color: #EAEAEA;
+    padding: 12px 0;
+    border-top: 5px solid #4A4A4A;
+}
+
+.container_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container_menu a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.container_menu a:hover {
+    color: #0056b3;
+}
+
+.divisor {
+    color: #999;
+    font-size: 1.1em;
+}
+
+/* --- 3. FOOTER (Componente Comum) --- */
+.site-footer {
+    background-color: #4A4A4A;
+    color: #f2f2f2;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* (Restante dos estilos do .site-footer, .footer-content, etc. Coloque-os aqui) */
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px; gap: 30px; }
+.footer-section { flex: 1; min-width: 250px; }
+.footer-section h3 { font-size: 1.2em; margin-bottom: 15px; color: #fff; border-bottom: 1px solid #B5B59C; padding-bottom: 5px; }
+.footer-section p, .footer-section ul { list-style: none; padding: 0; line-height: 1.6; }
+.footer-section li { margin-bottom: 8px; }
+.footer-section i { margin-right: 10px; }
+.footer-section a { color: #f2f2f2; }
+.footer-bottom { border-top: 1px solid #666; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.8em; }
+.social-links a { color: #f2f2f2; margin-left: 15px; font-size: 1.3em; transition: color 0.3s ease; }
+.social-links a:hover { color: #B5B59C; }
+
+
+/* --- 4. MEDIA QUERIES GLOBAIS (para header/footer) --- */
+@media (max-width: 900px) {
+    .container_madeira { flex-direction: column; text-align: center; }
+    .container_menu { flex-direction: column; gap: 5px; }
+    .divisor { display: none; }
+}
