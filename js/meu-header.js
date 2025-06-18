@@ -8,7 +8,7 @@ class MeuHeader extends HTMLElement {
         this.innerHTML = `
         <header>
             <div class="container_madeira">
-                <a href="main.html" class="logo-link">
+                <a href="home-page.html" class="logo-link">
                     <img src="${logoPath}" alt="Logo BPG Brasil - Ir para a página principal" class="logo">
                 </a>
                 <h1 class="header_font">Boletim Paranaense de Geociências</h1>
