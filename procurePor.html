@@ -22,35 +22,37 @@
             <div class="container">
                 <div class="content-area">
             <div class="search-bar">
-                <input type="text" placeholder="Buscar..." class="search-input">
-                <button class="search-icon">&#128269;</button> <button class="filter-button">Data</button>
-                <button class="filter-button">Edição</button>
-                <button class="filter-button">UFPR</button>
-            </div>
+    <input type="text" placeholder="Buscar..." class="search-input">
+    
+    <button class="search-icon" aria-label="Buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </button>
 
-            <div class="volume-section">
-                <h3 class="volume-title">Volume 82, N.1 (2024)</h3>
-                <div class="articles-grid">
-                    <div class="article-card">
-                        <span class="article-tag">Volume 82, N.1 (2024)</span>
-                        <p>- Artigo 1</p>
-                        <p>Autor 1</p>
-                        <p>DOI 12.345/geoc.v82i1.1212</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 82, N.1 (2024)</span>
-                        <p>- Artigo 2</p>
-                        <p>Autor 2</p>
-                        <p>DOI 12.345/geoc.v82i1.1212</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 82, N.1 (2024)</span>
-                        <p>- Artigo 3</p>
-                        <p>Autor 3</p>
-                        <p>DOI 12.345/geoc.v82i1.1212</p>
-                    </div>
-                </div>
-            </div>
+    <div class="dropdown">
+        <button class="filter-button">Data ▼</button>
+        <div class="dropdown-content">
+            <a href="#">2024</a>
+            <a href="#">2023</a>
+            <a href="#">2022</a>
+            <a href="#">Mais antigas...</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="filter-button">Edição ▼</button>
+        <div class="dropdown-content">
+            <a href="#">Volume 82</a>
+            <a href="#">Volume 81</a>
+            <a href="#">Volume 80</a>
+            <a href="#">Mais antigas...</a>
+        </div>
+    </div>
+    
+    <button class="filter-button" id="ufpr-filter-button">UFPR</button>
+</div>
 
             <div class="volume-section">
                 <h3 class="volume-title">Volume 81, N.1 (2023)</h3>
@@ -109,5 +111,21 @@
     <meu-footer></meu-footer>
 
     <script src="js/meu-header.js"></script>
-    <script src="js/meu-footer.js"></script> </body>
+    <script src="js/meu-footer.js"></script> 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const ufprButton = document.getElementById('ufpr-filter-button');
+
+    if (ufprButton) {
+        ufprButton.addEventListener('click', () => {
+            // Adiciona ou remove a classe 'active' do botão
+            ufprButton.classList.toggle('active');
+        });
+    }
+});
+</script>
+
+<script src="js/meu-header.js"></script>
+<script src="js/meu-footer.js"></script>
+</body>
 </html>
