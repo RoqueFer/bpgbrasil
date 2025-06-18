@@ -1,0 +1,31 @@
+/* ARQUIVO: css/layout_artigos.css */
+
+.main-content-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+.main-content-wrapper .container { /* Estilo específico para o container desta página */
+    width: 90%;
+    max-width: 1400px;
+    background-color: #f7f7f0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px 30px;
+}
+.search-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; background-color: #c0c090; padding: 10px; border-radius: 8px; }
+.search-input { flex-grow: 1; padding: 10px 15px; border: 1px solid #b0b080; border-radius: 5px; font-size: 1em; }
+.filter-button { background-color: #929267; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+.volume-section { margin-bottom: 40px; }
+.volume-title { background-color: #c0c090; color: #4a4a3a; padding: 15px 20px; border-radius: 8px; text-align: center; font-size: 1.5em; margin-bottom: 25px; }
+.articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+.article-card { background-color: #ffffff; border: 1px solid #d0d0b0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); }
+.pagination { display: flex; justify-content: center; margin-top: 40px; gap: 10px; }
+.pagination a { color: #929267; background-color: #f7f7f0; border: 1px solid #d0d0b0; padding: 8px 15px; border-radius: 5px; }
+
+@media (max-width: 768px) {
+    .articles-grid { grid-template-columns: 1fr; }
+}
