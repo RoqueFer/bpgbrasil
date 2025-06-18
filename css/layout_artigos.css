@@ -1,31 +1,202 @@
 /* ARQUIVO: css/layout_artigos.css */
-
 .main-content-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px 0;
-    flex-grow: 1;
+    background-color: #f0f0e0; /* Match body background */
+    flex-grow: 1; /* Allow this section to grow and push the footer down */
 }
+
 .main-content-wrapper .container { /* Estilo específico para o container desta página */
-    width: 90%;
-    max-width: 1400px;
+    width: 90%; /* Allows for some margin on the sides, stretching the overall layout */
+    max-width: 1400px; /* Increased max-width for a wider layout (e.g., from 1000px to 1400px) */
     background-color: #f7f7f0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    padding: 20px 30px;
+    /* Removi padding daqui pois content-area já tem padding */
 }
-.search-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; background-color: #c0c090; padding: 10px; border-radius: 8px; }
-.search-input { flex-grow: 1; padding: 10px 15px; border: 1px solid #b0b080; border-radius: 5px; font-size: 1em; }
-.filter-button { background-color: #929267; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
-.volume-section { margin-bottom: 40px; }
-.volume-title { background-color: #c0c090; color: #4a4a3a; padding: 15px 20px; border-radius: 8px; text-align: center; font-size: 1.5em; margin-bottom: 25px; }
-.articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
-.article-card { background-color: #ffffff; border: 1px solid #d0d0b0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); }
-.pagination { display: flex; justify-content: center; margin-top: 40px; gap: 10px; }
-.pagination a { color: #929267; background-color: #f7f7f0; border: 1px solid #d0d0b0; padding: 8px 15px; border-radius: 5px; }
 
-@media (max-width: 768px) {
-    .articles-grid { grid-template-columns: 1fr; }
+/* O content-area já está dentro do .container na sua nova estrutura HTML */
+.content-area {
+    padding: 20px 30px; /* Mantém o padding interno para o conteúdo */
+    background-color: #e0e0c0; /* Light beige for the main content area */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    background-color: #c0c090; /* A bit darker for the search bar background */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #b0b080;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+}
+
+.search-icon {
+    background-color: #929267;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.search-icon:hover {
+    background-color: #7a7a58;
+}
+
+.filter-button {
+    background-color: #929267;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #7a7a58;
+}
+
+.volume-section {
+    margin-bottom: 40px;
+}
+
+.volume-title {
+    background-color: #c0c090; /* Matches search bar background */
+    color: #4a4a3a;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 columns */
+    gap: 25px;
+}
+
+.article-card {
+    background-color: #ffffff;
+    border: 1px solid #d0d0b0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    min-height: 120px; /* Ensure consistent height */
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.article-tag {
+    background-color: #ffe080; /* Light yellow for the tag */
+    color: #6a5a00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: bold;
+    position: absolute;
+    top: -10px; /* Position above the card */
+    left: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Prevent tag text from wrapping */
+}
+
+.article-card p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.4;
+}
+
+.article-card p:first-of-type {
+    margin-top: 20px; /* Space for the tag */
+    font-weight: bold;
+    color: #333;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #929267;
+    background-color: #f7f7f0;
+    border: 1px solid #d0d0b0;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #929267;
+    color: white;
+}
+
+/* Responsive adjustments for layout_artigos specific elements */
+@media (max-width: 900px) {
+    .articles-grid {
+        grid-template-columns: 1fr; /* Single column on tablets and smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .content-area {
+        padding: 15px;
+    }
+
+    .search-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-input, .search-icon, .filter-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .article-card {
+        min-height: auto;
+    }
+
+    .article-tag {
+        position: static;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    .article-card p:first-of-type {
+        margin-top: 10px;
+    }
 }
