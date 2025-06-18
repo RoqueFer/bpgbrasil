@@ -50,9 +50,10 @@
 }
 
 .container-marrom {
-    background-color: #CDC3C3;
+    background-color: #cdc9c3;
     padding: 1% 2%;
     border-radius: 8px;
+    padding-left: 30px;
 }
 
 .container-marrom h1,
