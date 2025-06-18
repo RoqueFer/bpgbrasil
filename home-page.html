@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Boletim Paranaense de Geociências</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home-page.css">
+
+</head>
+<body>
+    <meu-header></meu-header>
+
+    <main class="homepage-main-content">
+        <section class="image-carousel-section">
+            <h2 class="carousel-section-title">Últimos Destaques</h2>
+            <div class="image-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="image-carousel-track-container">
+                    <div class="image-carousel-track">
+                        <div class="image-carousel-slide">
+                            <img src="/Logos - Parceiros/imagens de teste/PEDRA1.jpeg" alt="Descrição da Imagem 1">
+                            <div class="image-info-overlay">
+                                <h3>Título do Destaque 1</h3>
+                                <p>Uma breve descrição ou chamada sobre este destaque. Lorem ipsum dolor sit amet.</p>
+                                <a href="#" class="read-more-button">Leia Mais</a>
+                            </div>
+                        </div>
+                        <div class="image-carousel-slide">
+                            <img src="/Logos - Parceiros/imagens de teste/pedra2.jpeg" alt="Descrição da Imagem 2">
+                            <div class="image-info-overlay">
+                                <h3>Título do Destaque 2</h3>
+                                <p>Este é outro item interessante com detalhes adicionais. Consectetur adipiscing elit.</p>
+                                <a href="#" class="read-more-button">Leia Mais</a>
+                            </div>
+                        </div>
+                        <div class="image-carousel-slide">
+                            <img src="/Logos - Parceiros/imagens de teste/PEDRA3.jpeg" alt="Descrição da Imagem 3">
+                            <div class="image-info-overlay">
+                                <h3>Título do Destaque 3</h3>
+                                <p>Mais informações relevantes aqui. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <a href="#" class="read-more-button">Leia Mais</a>
+                            </div>
+                        </div>
+                        <div class="image-carousel-slide">
+                            <img src="/Logos - Parceiros/imagens de teste/PEDRA4.jpeg" alt="Descrição da Imagem 4">
+                            <div class="image-info-overlay">
+                                <h3>Título do Destaque 4</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <a href="#" class="read-more-button">Leia Mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+            <div class="carousel-dots-container image-dots"></div>
+        </section>
+
+        <section class="icon-carousel-section">
+            <h2 class="carousel-section-title">Parceiros</h2>
+            <div class="icon-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="icon-carousel-track-container">
+                    <div class="icon-carousel-track">
+                        <a href="#" class="icon-carousel-slide">
+                            <img src="/Logos - Parceiros/Elsevier/elsevier-ar21.svg" alt="Ícone de Geologia">
+                            <p>Elsevier</p>
+                        </a>
+                        <a href="#" class="icon-carousel-slide">
+                            <img src="/Logos - Parceiros/pet_geologia.jpg" alt="Ícone de Paleontologia">
+                            <p>Pet-geologia</p>
+                        </a>
+                        <a href="#" class="icon-carousel-slide">
+                            <img src="/Logos - Parceiros/Geologia_ufpr_grad.jpg" alt="Ícone de Hidrologia">
+                            <p>Geologia UFPR</p>
+                        </a>
+                        <a href="#" class="icon-carousel-slide">
+                            <img src="/Logos - Parceiros/UFPR/Logo_oficial_da_UFPR_(fundo_branco).svg.png" alt="Ícone de Topografia">
+                            <p>UFPR</p>
+                        </a>
+                        <a href="#" class="icon-carousel-slide">
+                            <img src="/Logos - Parceiros/pos-geologia.png" alt="Ícone de Meio Ambiente">
+                            <p>Pós-geologia UFPR</p>
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+            <div class="carousel-dots-container icon-dots"></div>
+        </section>
+
+    </main>
+
+    <meu-footer></meu-footer>
+
+    <script src="js/meu-header.js"></script>
+    <script src="js/meu-footer.js"></script>
+    <script src="js/homePage-Carousel.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+.homepage-main-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.carousel-section-title {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 2.2em;
+    color: #4a4a3a;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+/* --- ESTILOS GERAIS DOS CARROSSÉIS --- */
+.image-carousel-container,
+.icon-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* **Mantenha** este overflow: hidden para que o carrossel funcione */
+    background-color: #e0e0c0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.image-carousel-track-container,
+.icon-carousel-track-container {
+    width: calc(100% - 80px); /* Largura para deixar espaço para os botões laterais */
+    margin: 0 40px; /* Centraliza a track e dá espaço para os botões */
+    overflow: hidden; /* **Mantenha** este overflow: hidden */
+}
+
+.image-carousel-track,
+.icon-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+/* Botões de navegação */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Dots de navegação */
+.carousel-dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #555;
+    transform: scale(1.2);
+}
+
+.image-carousel-slide {
+    min-width: 100%; /* Isso faz com que cada slide ocupe 100% da largura do track-container */
+    flex-shrink: 0; /* Impede que o slide encolha */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.image-carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.image-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    opacity: 0;
+}
+
+.image-carousel-slide:hover .image-info-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.image-info-overlay h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.image-info-overlay p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.read-more-button {
+    display: inline-block;
+    background-color: #929267;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #7a7a58;
+}
+
+/* --- ESTILOS ESPECÍFICOS DO CARROSSEL DE ÍCONES --- */
+.icon-carousel-section {
+    margin-top: 50px;
+}
+
+.icon-carousel-slide {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4a4a3a;
+    margin-right: 20px; /* Garanta este gap para ser consistente com o JS */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Remover o último margin-right do track (se necessário, mas o JS lida com isso na teoria) */
+.icon-carousel-track .icon-carousel-slide:last-child {
+    margin-right: 0; /* Remove margin do último para não causar overflow ou espaço indesejado */
+}
+
+
+.icon-carousel-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon-carousel-slide img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #929267;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.icon-carousel-slide:hover img {
+    border-color: #7a7a58;
+}
+
+.icon-carousel-slide p {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* --- RESPONSIVIDADE PARA CARROSSÉIS --- */
+/* Media queries existentes, mas testar se ainda fazem sentido com as novas larguras */
+@media (max-width: 1024px) {
+    .image-carousel-slide img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-section-title {
+        font-size: 1.8em;
+    }
+
+    .image-carousel-slide img {
+        height: 300px;
+    }
+
+    .image-info-overlay {
+        padding: 15px;
+    }
+
+    .image-info-overlay h3 {
+        font-size: 1.3em;
+    }
+
+    .image-info-overlay p {
+        font-size: 0.85em;
+    }
+
+    .read-more-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    /* .icon-carousel-slide largura agora é ajustada pelo JS */
+    .icon-carousel-slide img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 550px) {
+    .homepage-main-content {
+        padding: 0 10px;
+    }
+
+    .carousel-button {
+        padding: 8px 12px;
+        font-size: 1.2em;
+    }
+
+    .image-carousel-track-container,
+    .icon-carousel-track-container {
+        width: calc(100% - 60px);
+        margin: 0 30px;
+    }
+
+    .image-carousel-slide img {
+        height: 250px;
+    }
+
+    .image-info-overlay h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 400px) {
+    .image-carousel-slide img {
+        height: 200px;
+    }
+    /* .icon-carousel-slide largura agora é ajustada pelo JS */
+    .icon-carousel-slide img {
+        width: 80px;
+        height: 80px;
+    }
+    .icon-carousel-slide p {
+        font-size: 0.9em;
+    }
+}
