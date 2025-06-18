@@ -21,7 +21,7 @@ class MeuHeader extends HTMLElement {
                     <p class="divisor">|</p>
                     <a href="normas.html">Normas</a>
                     <p class="divisor">|</p>
-                    <a href="fale_conosco.html">Consultivo</a>
+                    <a href="consultivo.html">Consultivo</a>
                     <p class="divisor">|</p>
                     <a href="fale_conosco.html">Fale Conosco</a>
                 </div>
