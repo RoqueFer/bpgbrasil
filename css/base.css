@@ -28,7 +28,7 @@ header {
 }
 
 .container_madeira {
-    background-image: url("../logos/fundo_header.svg"); /* ATENÇÃO: o caminho mudou para ../ */
+    background-image: url("../Logos - Parceiros/madeira_header.png"); /* ATENÇÃO: o caminho mudou para ../ */
     background-color: #EAEAEA;
     background-size: cover;
     display: flex;
@@ -37,7 +37,7 @@ header {
 }
 
 .logo {
-    height: 60px;
+    height: 100px;
     margin-right: 20px;
 }
 

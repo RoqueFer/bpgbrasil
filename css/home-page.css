@@ -1,7 +1,7 @@
 .homepage-main-content {
     width: 100%;
     max-width: 1400px;
-    margin: 20px auto;
+    margin: 5px auto;
     padding: 0 20px;
     box-sizing: border-box;
 }
@@ -13,7 +13,7 @@
     font-size: 2.2em;
     color: #4a4a3a;
     margin-bottom: 30px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 /* --- ESTILOS GERAIS DOS CARROSSÉIS --- */
