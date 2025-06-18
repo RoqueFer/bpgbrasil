@@ -198,7 +198,7 @@ body{
     justify-content: space-between;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
-    min-height: 120px; 
+    min-height: 120px;
 }
 
 .article-card:hover {
@@ -267,7 +267,7 @@ body{
 }
 
 .container_footer {
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -349,7 +349,7 @@ body{
 }
 
 
-@media (max-width: 900px) { 
+@media (max-width: 900px) {
     .container_menu {
         flex-direction: column;
         gap: 5px;
@@ -373,7 +373,7 @@ body{
     }
 
     .articles-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
 
     .footer-content {
         flex-direction: column;
@@ -432,7 +432,7 @@ body {
 }
 
 main {
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 
@@ -457,7 +457,7 @@ header {
 
 
 .logo-link {
-    line-height: 0; 
+    line-height: 0;
 }
 
 .logo-link img {
@@ -533,8 +533,9 @@ header {
     background-color: #D9D9D9;
     height: 160px;
     border-radius: 4px;
+    /* MUITO IMPORTANTE: ADICIONAR OU CONFIRMAR ESTA LINHA */
+    transition: all 0.3s ease;
 }
-
 
 /* --- FOOTER (Web Component) --- */
 .site-footer {
@@ -559,7 +560,7 @@ header {
 }
 
 .footer-section {
-    flex: 1; 
+    flex: 1;
     min-width: 250px; /* Largura mínima para as seções */
 }
 

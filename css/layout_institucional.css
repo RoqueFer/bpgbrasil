@@ -34,6 +34,14 @@
     border-radius: 4px;
 }
 
+.card:hover {
+    /* Estilos aplicados ao passar o mouse */
+    background-color: #C0C0C0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
 /* Estilos para páginas como "Normas" e "Envie seu Artigo" */
 .container-verde {
     background-color: #C9C6A5;
