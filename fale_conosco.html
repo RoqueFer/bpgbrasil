@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco - Boletim Paranaense de Geociências</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout-faleconosco-final.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <script src="js/meu-header.js" defer></script>
+    <script src="js/meu-footer.js" defer></script>
+</head>
+<body>
+
+    <meu-header></meu-header>
+
+    <main class="container-conteudo">
+        
+        <div class="secao-contato">
+            <h2>Entre em contato pelo nosso email</h2>
+            <p class="email-contato">bpg.ufpr@gmail.com</p>
+        </div>
+        
+        <div class="secao-contato">
+            <h2>Nos envie uma mensagem</h2>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <textarea name="message" placeholder="Insira sua mensagem aqui" required></textarea>
+                    <button type="submit" class="send-button" aria-label="Enviar mensagem">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <meu-footer></meu-footer>
+
+</body>
+</html>
