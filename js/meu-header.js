@@ -3,7 +3,7 @@
 class MeuHeader extends HTMLElement {
     connectedCallback() {
         // O caminho para a logo agora precisa pensar a partir da raiz do site
-        const logoPath = '/Logos - Parceiros/logo_pronta.png';
+        const logoPath = '/Logos - Parceiros/LOGO ATUALIZADA SENHOR AMADO.png';
 
         this.innerHTML = `
         <header>
