@@ -1,3 +1,5 @@
+/* ARQUIVO: css/homepage.css */
+
 .homepage-main-content {
     width: 100%;
     max-width: 1400px;
@@ -21,7 +23,7 @@
 .icon-carousel-container {
     position: relative;
     width: 100%;
-    overflow: hidden; /* **Mantenha** este overflow: hidden para que o carrossel funcione */
+    overflow: hidden;
     background-color: #e0e0c0;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -30,9 +32,9 @@
 
 .image-carousel-track-container,
 .icon-carousel-track-container {
-    width: calc(100% - 80px); /* Largura para deixar espaço para os botões laterais */
-    margin: 0 40px; /* Centraliza a track e dá espaço para os botões */
-    overflow: hidden; /* **Mantenha** este overflow: hidden */
+    width: calc(100% - 80px);
+    margin: 0 40px;
+    overflow: hidden;
 }
 
 .image-carousel-track,
@@ -93,8 +95,8 @@
 }
 
 .image-carousel-slide {
-    min-width: 100%; /* Isso faz com que cada slide ocupe 100% da largura do track-container */
-    flex-shrink: 0; /* Impede que o slide encolha */
+    min-width: 100%;
+    flex-shrink: 0;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -151,7 +153,7 @@
     background-color: #7a7a58;
 }
 
-/* --- ESTILOS ESPECÍFICOS DO CARROSSEL DE ÍCONES --- */
+/* --- ESTILOS ESPECÍFICOS DO CARROSSEL DE ÍCONES (PARCEIROS) --- */
 .icon-carousel-section {
     margin-top: 50px;
 }
@@ -164,19 +166,20 @@
     justify-content: center;
     text-align: center;
     color: #4a4a3a;
-    margin-right: 20px; /* Garanta este gap para ser consistente com o JS */
+    margin-right: 20px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-/* Remover o último margin-right do track (se necessário, mas o JS lida com isso na teoria) */
-.icon-carousel-track .icon-carousel-slide:last-child {
-    margin-right: 0; /* Remove margin do último para não causar overflow ou espaço indesejado */
+    /* Transições apenas para box-shadow e background-color */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-
+/* Efeito de HOVER para cada slide de ícone */
 .icon-carousel-slide:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Removido transform: translateY e scale */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais suave que antes */
+    background-color: #f7f7f0; /* Um fundo levemente diferente no hover */
+    /* Removido z-index se não houver mais sobreposição devido a transform */
 }
 
 .icon-carousel-slide img {
@@ -187,21 +190,34 @@
     border: 3px solid #929267;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    transition: border-color 0.3s ease;
+    /* Transição para a borda e filtro da imagem, REMOVIDO TRANSFORM DA IMAGEM */
+    transition: border-color 0.3s ease, filter 0.3s ease;
 }
 
 .icon-carousel-slide:hover img {
-    border-color: #7a7a58;
+    border-color: #7a7a58; /* Muda a cor da borda no hover */
+    /* REMOVIDO transform: scale(1.05); */
+    filter: brightness(1.15) contrast(1.05); /* Aumenta o brilho e contraste da imagem */
 }
 
 .icon-carousel-slide p {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 700;
     font-size: 1.1em;
+    color: #4a4a3a;
+    transition: color 0.3s ease;
+}
+
+.icon-carousel-slide:hover p {
+    color: #222;
+}
+
+/* Remover o último margin-right do track */
+.icon-carousel-track .icon-carousel-slide:last-child {
+    margin-right: 0;
 }
 
 /* --- RESPONSIVIDADE PARA CARROSSÉIS --- */
-/* Media queries existentes, mas testar se ainda fazem sentido com as novas larguras */
 @media (max-width: 1024px) {
     .image-carousel-slide img {
         height: 350px;
@@ -234,7 +250,10 @@
         font-size: 0.9em;
     }
 
-    /* .icon-carousel-slide largura agora é ajustada pelo JS */
+    .icon-carousel-slide {
+        width: 150px;
+    }
+
     .icon-carousel-slide img {
         width: 100px;
         height: 100px;
@@ -270,7 +289,9 @@
     .image-carousel-slide img {
         height: 200px;
     }
-    /* .icon-carousel-slide largura agora é ajustada pelo JS */
+    .icon-carousel-slide {
+        width: 120px;
+    }
     .icon-carousel-slide img {
         width: 80px;
         height: 80px;
