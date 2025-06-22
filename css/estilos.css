@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-color: #f0f0e0; /* Light beige background */
+    background-color: #D3D3B5; /* Light beige background */
     display: flex;
     flex-direction: column; /* Changed to column to stack header, content, and footer */
     justify-content: flex-start;
@@ -27,7 +27,6 @@ body{
 }
 
 
-=======
 
 /* header */
 .container_madeira{
@@ -604,4 +603,5 @@ header {
 
 .social-links a:hover {
     color: #B5B59C;
+}
 }
