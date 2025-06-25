@@ -1,212 +1,257 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Artigos - Boletim Paranaense de Geociências</title>
 
+    <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout_artigos.css">
 
 </head>
+
 <body>
+    <!-- O seu header customizado -->
     <meu-header></meu-header>
 
     <main>
         <div class="main-content-wrapper">
             <div class="container">
                 <div class="content-area">
-            <div class="search-bar">
-    <input type="text" placeholder="Buscar..." class="search-input">
-    
-    <button class="search-icon" aria-label="Buscar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-    </button>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar..." class="search-input">
+                        <button class="search-icon" aria-label="Buscar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
 
-    <div class="dropdown">
-        <button class="filter-button">Data ▼</button>
-        <div class="dropdown-content">
-            <a href="#">2024</a>
-            <a href="#">2023</a>
-            <a href="#">2022</a>
-            <a href="#">Mais antigas...</a>
-        </div>
-    </div>
+                        <!-- Dropdown de Data -->
+                        <div class="dropdown">
+                            <button class="filter-button" data-dropdown-button>Data ▼</button>
+                            <div class="dropdown-content">
+                                <a href="#">2024</a>
+                                <a href="#">2023</a>
+                                <a href="#">2022</a>
+                                <a href="#">Mais antigas...</a>
+                            </div>
+                        </div>
 
-    <div class="dropdown">
-        <button class="filter-button">Edição ▼</button>
-        <div class="dropdown-content">
-            <a href="#">Volume 82</a>
-            <a href="#">Volume 81</a>
-            <a href="#">Volume 80</a>
-            <a href="#">Mais antigas...</a>
-        </div>
-    </div>
-    
-    <button class="filter-button" id="ufpr-filter-button">UFPR</button>
-</div>
+                        <!-- Dropdown de Edição -->
+                        <div class="dropdown">
+                            <button class="filter-button" data-dropdown-button>Edição ▼</button>
+                            <div class="dropdown-content">
+                                <a href="#">Volume 82</a>
+                                <a href="#">Volume 81</a>
+                                <a href="#">Volume 80</a>
+                                <a href="#">Mais antigas...</a>
+                            </div>
+                        </div>
 
-            <div class="volume-section">
-                <h3 class="volume-title">Volume 81, N.1 (2023)</h3>
-                <div class="articles-grid">
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 1</p>
-                        <p>Autor 1</p>
-                        <p>DOI 12.345/geoc.v81i1.1111</p>
+                        <button class="filter-button" id="ufpr-filter-button">UFPR</button>
                     </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 2</p>
-                        <p>Autor 2</p>
-                        <p>DOI 12.345/geoc.v81i1.1112</p>
+
+                    <div class="volume-section">
+                        <h3 class="volume-title">Volume 81, N.1 (2023)</h3>
+                        <div class="articles-grid">
+
+                            <!-- A estrutura de artigos com o pop-up de resumo continua a mesma -->
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 1</p>
+                                <p>Autor 1</p>
+                                <p>DOI 12.345/geoc.v81i1.1111</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 1</h4>
+                                    <p>Resumo do Artigo 1. Substitua este texto pelo conteúdo real do resumo.</p>
+                                </div>
+                            </div>
+
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 2</p>
+                                <p>Autor 2</p>
+                                <p>DOI 12.345/geoc.v81i1.1112</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 2</h4>
+                                    <p>Resumo do Artigo 2. Substitua este texto pelo conteúdo real do resumo.</p>
+                                </div>
+                            </div>
+
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 3</p>
+                                <p>Autor 3</p>
+                                <p>DOI 12.345/geoc.v81i1.1113</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 3</h4>
+                                    <p>Resumo do Artigo 3.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 4</p>
+                                <p>Autor 4</p>
+                                <p>DOI 12.345/geoc.v81i1.1114</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 4</h4>
+                                    <p>Resumo do Artigo 4.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 5</p>
+                                <p>Autor 5</p>
+                                <p>DOI 12.345/geoc.v81i1.1115</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 5</h4>
+                                    <p>Resumo do Artigo 5.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 6</p>
+                                <p>Autor 6</p>
+                                <p>DOI 12.345/geoc.v81i1.1116</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 6</h4>
+                                    <p>Resumo do Artigo 6.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 7</p>
+                                <p>Autor 7</p>
+                                <p>DOI 12.345/geoc.v81i1.1117</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 7</h4>
+                                    <p>Resumo do Artigo 7.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 8</p>
+                                <p>Autor 8</p>
+                                <p>DOI 12.345/geoc.v81i1.1118</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 8</h4>
+                                    <p>Resumo do Artigo 8.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 9</p>
+                                <p>Autor 9</p>
+                                <p>DOI 12.345/geoc.v81i1.1119</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 9</h4>
+                                    <p>Resumo do Artigo 9.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 10</p>
+                                <p>Autor 10</p>
+                                <p>DOI 12.345/geoc.v81i1.1120</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 10</h4>
+                                    <p>Resumo do Artigo 10.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 11</p>
+                                <p>Autor 11</p>
+                                <p>DOI 12.345/geoc.v81i1.1121</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 11</h4>
+                                    <p>Resumo do Artigo 11.</p>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <span class="article-tag">Volume 81, N.1 (2023)</span>
+                                <p>- Artigo 12</p>
+                                <p>Autor 12</p>
+                                <p>DOI 12.345/geoc.v81i1.1122</p>
+                                <div class="article-summary-popup">
+                                    <h4>Artigo 12</h4>
+                                    <p>Resumo do Artigo 12.</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 3</p>
-                        <p>Autor 3</p>
-                        <p>DOI 12.345/geoc.v81i1.1113</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 4</p>
-                        <p>Autor 4</p>
-                        <p>DOI 12.345/geoc.v81i1.1114</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 5</p>
-                        <p>Autor 5</p>
-                        <p>DOI 12.345/geoc.v81i1.1115</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
-                    </div>
-                    <div class="article-card">
-                        <span class="article-tag">Volume 81, N.1 (2023)</span>
-                        <p>- Artigo 6</p>
-                        <p>Autor 6</p>
-                        <p>DOI 12.345/geoc.v81i1.1116</p>
+
+                    <div class="pagination">
+                        <a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a
+                            href="#">&gt;</a>
                     </div>
                 </div>
             </div>
-
-            <div class="pagination">
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">&gt;</a>
-            </div>
-
-
-                    
-
-                    
-
-            </div>
-
         </div>
     </main>
 
+    <!-- O seu footer customizado -->
     <meu-footer></meu-footer>
 
+    <!-- Scripts -->
     <script src="js/meu-header.js"></script>
-    <script src="js/meu-footer.js"></script> 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const ufprButton = document.getElementById('ufpr-filter-button');
-
-    if (ufprButton) {
-        ufprButton.addEventListener('click', () => {
-            // Adiciona ou remove a classe 'active' do botão
-            ufprButton.classList.toggle('active');
-        });
-    }
-});
-</script>
-
-<script src="js/meu-header.js"></script>
-<script src="js/meu-footer.js"></script>
-</body>
     <script src="js/meu-footer.js"></script>
-    <script src="js/dropdown-Artigos.js"></script> </body>
+
+    <!-- SCRIPT PARA DROPDOWNS E BOTÃO UFPR (LÓGICA CORRIGIDA) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica para o botão de filtro UFPR
+            const ufprButton = document.getElementById('ufpr-filter-button');
+            if (ufprButton) {
+                ufprButton.addEventListener('click', () => {
+                    ufprButton.classList.toggle('active');
+                });
+            }
+
+            // --- LÓGICA CORRIGIDA PARA OS DROPDOWNS ---
+            // Adiciona um único listener de clique no documento
+            document.addEventListener('click', e => {
+                // Verifica se o clique foi em um botão de dropdown
+                const isDropdownButton = e.target.matches("[data-dropdown-button]");
+
+                // Se o clique não foi em um botão, e não foi dentro de um dropdown já aberto, fecha todos.
+                if (!isDropdownButton && e.target.closest('.dropdown') == null) {
+                    document.querySelectorAll(".dropdown.active").forEach(dropdown => {
+                        dropdown.classList.remove("active");
+                    });
+                    return;
+                }
+
+                // Se o clique foi em um botão de dropdown...
+                let currentDropdown;
+                if (isDropdownButton) {
+                    currentDropdown = e.target.closest('.dropdown');
+                    // Alterna (abre/fecha) o dropdown que foi clicado.
+                    currentDropdown.classList.toggle('active');
+                }
+
+                // Fecha todos os outros dropdowns que não sejam o que acabou de ser clicado.
+                document.querySelectorAll(".dropdown.active").forEach(dropdown => {
+                    if (dropdown === currentDropdown) return; // Não fecha o que acabamos de abrir
+                    dropdown.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+
 </html>
