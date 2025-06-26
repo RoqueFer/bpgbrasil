@@ -1,0 +1,42 @@
+
+.destaque-image-container {
+    text-align: center; /* Centraliza a imagem */
+    margin-bottom: 30px;
+}
+
+.destaque-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.destaque-content {
+    font-family: 'Alegreya Sans', sans-serif;
+    line-height: 1.7;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.destaque-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.6em;
+    color: #5d5d4d;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.destaque-content p {
+    margin-bottom: 15px;
+}
+
+.destaque-content ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.destaque-content ul li {
+    margin-bottom: 8px;
+}
