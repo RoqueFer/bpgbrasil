@@ -6,7 +6,7 @@
 }
 
 .secao_conteudo {
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .grid_container {
@@ -56,6 +56,10 @@
 
 .institucional-section {
   margin-bottom: 40px;
+}
+
+.titulo_secao {
+  margin-bottom: 20px;
 }
 
 .institucional-section:last-of-type {
