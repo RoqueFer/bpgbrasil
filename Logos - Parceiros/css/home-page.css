@@ -1,0 +1,311 @@
+/* ARQUIVO: css/homepage.css */
+
+.homepage-main-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 5px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.carousel-section-title {
+    text-align: center;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 700;
+    font-size: 2.2em;
+    color: #4a4a3a;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+/* --- ESTILOS GERAIS DOS CARROSSÉIS --- */
+.image-carousel-container,
+.icon-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #e0e0c0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.image-carousel-track-container,
+.icon-carousel-track-container {
+    width: calc(100% - 80px);
+    margin: 0 40px;
+    overflow: hidden;
+}
+
+.image-carousel-track,
+.icon-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(146, 146, 103, 0.8); 
+    color: white;
+    border: none;
+    padding: 12px 18px; 
+    cursor: pointer;
+    font-size: 25px; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px; 
+}
+
+.carousel-button:hover {
+    background-color: #7a7a58; /* Cor do tema mais escura no hover */
+    transform: translateY(-50%) scale(1.1); /* Sobe e cresce levemente */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Dots de navegação */
+.carousel-dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #555;
+    transform: scale(1.2);
+}
+
+.image-carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.image-carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.image-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    opacity: 0;
+}
+
+.image-carousel-slide:hover .image-info-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.image-info-overlay h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.image-info-overlay p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.read-more-button {
+    display: inline-block;
+    background-color: #929267;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #7a7a58;
+}
+
+/* --- ESTILOS ESPECÍFICOS DO CARROSSEL DE ÍCONES (PARCEIROS) --- */
+.icon-carousel-section {
+    margin-top: 50px;
+}
+
+.icon-carousel-slide {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #4a4a3a;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.icon-carousel-slide:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background-color: #f7f7f0;
+}
+
+.icon-carousel-slide img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #929267;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease, filter 0.3s ease;
+}
+
+.icon-carousel-slide:hover img {
+    border-color: #7a7a58;
+    filter: brightness(1.15) contrast(1.05);
+}
+
+.icon-carousel-slide p {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #4a4a3a;
+    transition: color 0.3s ease;
+}
+
+.icon-carousel-slide:hover p {
+    color: #222;
+}
+
+/* Remover o último margin-right do track */
+.icon-carousel-track .icon-carousel-slide:last-child {
+    margin-right: 0;
+}
+
+/* --- RESPONSIVIDADE PARA CARROSSÉIS --- */
+@media (max-width: 1024px) {
+    .image-carousel-slide img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-section-title {
+        font-size: 1.8em;
+    }
+
+    .image-carousel-slide img {
+        height: 300px;
+    }
+
+    .image-info-overlay {
+        padding: 15px;
+    }
+
+    .image-info-overlay h3 {
+        font-size: 1.3em;
+    }
+
+    .image-info-overlay p {
+        font-size: 0.85em;
+    }
+
+    .read-more-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .icon-carousel-slide {
+        width: 150px;
+    }
+
+    .icon-carousel-slide img {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Botões de navegação responsivos */
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3em;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    .homepage-main-content {
+        padding: 0 10px;
+    }
+
+    .carousel-button {
+        padding: 8px 12px;
+        font-size: 1.2em;
+    }
+
+    .image-carousel-track-container,
+    .icon-carousel-track-container {
+        width: calc(100% - 60px);
+        margin: 10 30px;
+    }
+
+    .image-carousel-slide img {
+        height: 250px;
+    }
+
+    .image-info-overlay h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 400px) {
+    .image-carousel-slide img {
+        height: 200px;
+    }
+    .icon-carousel-slide {
+        width: 120px;
+    }
+    .icon-carousel-slide img {
+        width: 80px;
+        height: 80px;
+    }
+    .icon-carousel-slide p {
+        font-size: 0.9em;
+    }
+}
