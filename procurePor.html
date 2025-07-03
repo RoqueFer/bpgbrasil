@@ -14,7 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS Externos -->
+    <!-- CSS Externo -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout_artigos.css">
 
@@ -34,7 +34,7 @@
 
                         <div class="dropdown">
                             <button class="filter-button" data-dropdown-button>Data ▼</button>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" id="year-filter-options">
                                 <a href="#" class="filter-option" data-filter-type="year" data-filter-value="all">Todos
                                     os Anos</a>
                                 <a href="#" class="filter-option" data-filter-type="year"
@@ -53,8 +53,7 @@
                         <div class="dropdown">
                             <button class="filter-button" data-dropdown-button>Edição ▼</button>
                             <div class="dropdown-content" id="edition-filter-options">
-                                <a href="#" class="filter-option" data-filter-type="edition"
-                                    data-filter-value="all">Todas as Edições</a>
+                                <!-- Populado via JS -->
                             </div>
                         </div>
 
@@ -282,6 +281,8 @@
             const volumeTitle = document.getElementById('volume-title');
             const paginationContainer = document.getElementById('pagination-container');
             const clearFiltersBtn = document.getElementById('clear-filters-btn');
+            const editionDropdownContent = document.getElementById('edition-filter-options');
+            const editionFilterButton = editionDropdownContent.previousElementSibling;
 
             const articlesPerPage = 8;
             let currentPage = 1;
@@ -345,6 +346,27 @@
                 displayPage();
             };
 
+            const updateEditionFilter = (selectedYear) => {
+                editionDropdownContent.innerHTML = '<a href="#" class="filter-option" data-filter-type="edition" data-filter-value="all">Todas as Edições</a>';
+
+                const articlesForYear = selectedYear === 'all'
+                    ? allArticles
+                    : allArticles.filter(a => a.dataset.year === selectedYear);
+
+                const editions = [...new Set(Array.from(articlesForYear).map(a => a.dataset.edition))];
+                editions.sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+
+                editions.forEach(edition => {
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.className = 'filter-option';
+                    link.dataset.filterType = 'edition';
+                    link.dataset.filterValue = edition;
+                    link.textContent = edition;
+                    editionDropdownContent.appendChild(link);
+                });
+            };
+
             document.addEventListener('click', e => {
                 const isDropdownButton = e.target.matches("[data-dropdown-button]");
                 if (!isDropdownButton && e.target.closest('.dropdown') === null) {
@@ -366,8 +388,14 @@
 
                     if (filterType === 'year') {
                         volumeTitle.textContent = filterValue === 'all' ? 'Todos os Artigos' : `Artigos de ${filterValue}`;
+                        activeFilters.edition = 'all'; // Reseta o filtro de edição
+                        editionFilterButton.textContent = 'Edição ▼'; // Reseta o botão de edição
+                        updateEditionFilter(filterValue); // Atualiza as opções de edição
                     } else if (filterType === 'edition') {
-                        volumeTitle.textContent = filterValue === 'all' ? 'Todos os Artigos' : filterValue;
+                        volumeTitle.textContent = filterValue === 'all' ? `Artigos de ${activeFilters.year}` : filterValue;
+                        if (activeFilters.year === 'all' && filterValue !== 'all') {
+                            volumeTitle.textContent = filterValue;
+                        }
                     }
 
                     applyFiltersAndPaginate();
@@ -388,30 +416,15 @@
                     searchInput.value = '';
                     document.querySelectorAll('[data-dropdown-button]').forEach(button => {
                         const dropdownContent = button.nextElementSibling;
-                        if (dropdownContent.querySelector('[data-filter-type="year"]')) { button.textContent = 'Data ▼'; }
-                        else if (dropdownContent.querySelector('[data-filter-type="edition"]')) { button.textContent = 'Edição ▼'; }
+                        if (dropdownContent.id === 'year-filter-options') { button.textContent = 'Data ▼'; }
+                        else if (dropdownContent.id === 'edition-filter-options') { button.textContent = 'Edição ▼'; }
                     });
                     volumeTitle.textContent = "Todos os Artigos";
+                    updateEditionFilter('all');
                     applyFiltersAndPaginate();
                 });
             }
 
-            const editionDropdown = document.getElementById('edition-filter-options');
-            if (editionDropdown) {
-                const editions = [...new Set(Array.from(allArticles).map(a => a.dataset.edition))];
-                editions.sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
-                editions.forEach(edition => {
-                    const link = document.createElement('a');
-                    link.href = '#';
-                    link.className = 'filter-option';
-                    link.dataset.filterType = 'edition';
-                    link.dataset.filterValue = edition;
-                    link.textContent = edition;
-                    editionDropdown.appendChild(link);
-                });
-            }
-
-            // --- LÓGICA DA PRÉVIA (HOVER E TOQUE) ---
             articlesGrid.addEventListener('pointerover', e => {
                 const card = e.target.closest('.article-card');
                 if (!card || card.style.display === 'none') return;
@@ -422,7 +435,6 @@
                 const cardRect = card.getBoundingClientRect();
                 const gridRect = articlesGrid.getBoundingClientRect();
 
-                // Horizontal (Desktop)
                 if (window.innerWidth > 900) {
                     if (cardRect.left < gridRect.left + (gridRect.width / 2)) {
                         popup.classList.add('summary-show-right');
@@ -433,7 +445,6 @@
                     }
                 }
 
-                // Vertical (Mobile e Desktop)
                 const viewportHeight = window.innerHeight;
                 if (cardRect.top + (popup.offsetHeight / 2) > viewportHeight / 2) {
                     popup.classList.add('summary-align-bottom');
@@ -445,6 +456,7 @@
             });
 
             // --- INICIALIZAÇÃO ---
+            updateEditionFilter('all');
             applyFiltersAndPaginate();
         });
     </script>
