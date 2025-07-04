@@ -1,0 +1,130 @@
+/* --- LAYOUT PRINCIPAL (Consistente com outras páginas) --- */
+.main-content-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: #D3D3B5;
+  flex-grow: 1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  background-color: #f7f7f0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.content-area {
+  padding: 30px 40px;
+  background-color: #e0e0c0;
+  border-radius: 8px;
+}
+
+/* --- ESTILIZAÇÃO DO CONTEÚDO DO ARTIGO --- */
+.leia-mais-content {
+  background-color: #f9f5e9;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid #d0d0b0;
+}
+
+.leia-mais-content header {
+  border-radius: 1rem;
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 4px solid #c0c090; /* Linha mais grossa */
+  padding: 30px 0;
+  box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.2); /* Sombra suave adicionada */
+}
+
+.leia-mais-title {
+  font-size: 2.5em;
+  color: #333;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.leia-mais-meta {
+  font-size: 1em;
+  color: #777;
+  font-style: italic;
+}
+
+.leia-mais-figure {
+  margin: 0 0 40px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.leia-mais-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px; /* Limite máximo de altura adicionado */
+  object-fit: cover;  /* Garante que a imagem cubra a área sem distorcer */
+  display: block;
+}
+
+.leia-mais-figure figcaption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85em;
+  background-color: #d1d1d1; /* Cor alterada para ser quase invisível */
+  height: 2rem;
+  font-style: italic;
+}
+
+.leia-mais-text {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #444;
+}
+
+.leia-mais-text h2 {
+  font-size: 1.6em;
+  color: #333;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.leia-mais-text p {
+  margin-bottom: 20px;
+}
+
+.site-footer .container {
+  background-color: #4a4a4a;
+  box-shadow: none;
+}
+
+.leia-mais-text blockquote {
+  border-left: 4px solid #929267;
+  padding-left: 20px;
+  margin: 30px 0;
+  font-style: italic;
+  font-size: 1.1em;
+  color: #555;
+  background-color: #f0f0f0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  .content-area {
+      padding: 20px;
+  }
+  .leia-mais-content {
+      padding: 25px;
+  }
+  .leia-mais-title {
+      font-size: 2em;
+  }
+  .leia-mais-text {
+      font-size: 1em;
+      line-height: 1.7;
+  }
+}
