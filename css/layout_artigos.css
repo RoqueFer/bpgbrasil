@@ -1,38 +1,47 @@
-/* ARQUIVO: css/layout_artigos.css */
+/* --- ESTILOS GERAIS DA PÁGINA --- */
+main {
+    flex-grow: 1;
+}
+
 .main-content-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px 0;
-    background-color: #f0f0e0; /* Match body background */
-    flex-grow: 1; /* Allow this section to grow and push the footer down */
 }
 
-.main-content-wrapper .container { /* Estilo específico para o container desta página */
-    width: 90%; /* Allows for some margin on the sides, stretching the overall layout */
-    max-width: 1400px; /* Increased max-width for a wider layout (e.g., from 1000px to 1400px) */
+.container {
+    width: 90%;
+    max-width: 1400px;
     background-color: #f7f7f0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
+    overflow: visible; /* Permite que a prévia "vaze" visualmente */
+}
+
+.site-footer .container {
+    background-color: #4a4a4a;
+    box-shadow: none;
 }
 
 .content-area {
-    padding: 20px 30px; /* Mantém o padding interno para o conteúdo */
-    background-color: #e0e0c0; /* Light beige for the main content area */
+    padding: 20px 30px;
+    background-color: #e0e0c0;
+    border-radius: 8px;
 }
 
+/* --- BARRA DE BUSCA E FILTROS --- */
 .search-bar {
     display: flex;
-    align-items: center;
     gap: 10px;
+    align-items: center;
     margin-bottom: 30px;
     background-color: #c0c090;
     padding: 10px;
     border-radius: 8px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
-    justify-content: flex-start; /* Alinha os itens à esquerda por padrão */
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .search-input {
@@ -44,28 +53,15 @@
     outline: none;
 }
 
-.search-icon {
-    background-color: #929267;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease;
+/* --- ESTILOS PARA DROPDOWNS E BOTÕES --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.search-icon:hover {
-    background-color: #7a7a58;
-}
-
-/* --- ESTILOS PARA DROPDOWNS --- */
-.dropdown-filter {
-    position: relative; /* Essencial para o posicionamento absoluto do menu */
-    display: inline-block; /* Permite que fiquem lado a lado */
-}
-
-.filter-button {
+.filter-button,
+#clear-filters-btn,
+#ufpr-filter-button {
     background-color: #929267;
     color: white;
     border: none;
@@ -73,53 +69,54 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 1em;
     transition: background-color 0.3s ease;
-    white-space: nowrap; /* Impede que o texto do botão quebre */
+    white-space: nowrap;
+    height: 42px;
 }
 
 .filter-button:hover,
-.filter-button.active { /* Adicionado estilo para quando o botão está ativo */
+#clear-filters-btn:hover,
+#ufpr-filter-button:hover,
+.dropdown.active > .filter-button {
     background-color: #7a7a58;
 }
 
-.dropdown-menu {
-    display: none; /* Esconde o menu por padrão */
+.dropdown-content {
+    display: none;
     position: absolute;
-    background-color: #f9f9f9; /* Fundo do menu dropdown */
-    min-width: 160px;
+    background-color: #f9f9f9;
+    min-width: 240px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 100; /* Garante que o menu fique acima de outros elementos */
+    z-index: 100;
     border-radius: 5px;
-    overflow: hidden; /* Garante que os itens respeitem o border-radius */
-    margin-top: 5px; /* Espaçamento entre o botão e o menu */
-    left: 0; /* Alinha o menu com o botão */
+    overflow: hidden;
+    margin-top: 5px;
+    left: 0;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
-.dropdown-menu.show {
-    display: block; /* Mostra o menu quando a classe 'show' é adicionada */
+.dropdown.active .dropdown-content {
+    display: block;
 }
 
-.dropdown-menu a {
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-family: 'Alegreya Sans', sans-serif; /* Usando a fonte dos seus links */
-    font-weight: 400; /* Peso normal para itens de menu */
     transition: background-color 0.2s ease;
 }
 
-.dropdown-menu a:hover {
+.dropdown-content a:hover {
     background-color: #ddd;
-    color: #333; /* Cor do texto no hover */
-}
-/* --- FIM DOS ESTILOS PARA DROPDOWNS --- */
-
-
-.volume-section {
-    margin-bottom: 40px;
 }
 
+
+/* --- GRID DE ARTIGOS E ESTILOS GERAIS --- */
+.volume-section { margin-bottom: 40px; }
 .volume-title {
     background-color: #c0c090;
     color: #4a4a3a;
@@ -130,13 +127,11 @@
     margin-bottom: 25px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .articles-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
-
 .article-card {
     background-color: #ffffff;
     border: 1px solid #d0d0b0;
@@ -146,16 +141,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     min-height: 120px;
+    transition: opacity 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
 }
-
-.article-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
 .article-tag {
     background-color: #ffe080;
     color: #6a5a00;
@@ -166,164 +155,74 @@
     position: absolute;
     top: -10px;
     left: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
 }
+.article-card p { margin: 5px 0; font-size: 0.95em; color: #555; line-height: 1.4; }
+.article-card p:first-of-type { margin-top: 25px; }
 
-.article-card p {
-    margin: 5px 0;
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.4;
+/* --- LÓGICA DE FOCO E PRÉVIA (COMUM) --- */
+.articles-grid:has(.article-card:hover) .article-card:not(:hover) {
+    opacity: 0.5;
+    filter: blur(3px);
 }
-
-.article-card p:first-of-type {
-    margin-top: 20px;
-    font-weight: bold;
-    color: #333;
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 10px;
-}
-
-.pagination a {
-    text-decoration: none;
-    color: #929267;
-    background-color: #f7f7f0;
-    border: 1px solid #d0d0b0;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: bold;
-}
-
-.pagination a:hover {
-    background-color: #929267;
-    color: white;
-}
-
-/* Responsive adjustments for layout_artigos specific elements */
-@media (max-width: 900px) {
-    .articles-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .search-bar {
-        flex-direction: column; /* Pilha os itens em colunas em telas menores */
-        align-items: stretch; /* Estica os itens para preencher a largura */
-    }
-
-    .search-input,
-    .dropdown-filter,
-    .search-icon {
-        width: 100%; /* Faz com que input, botões e dropdowns ocupem a largura total */
-        margin-bottom: 10px; /* Adiciona espaço entre eles */
-    }
-
-    .filter-button {
-        width: 100%; /* Faz o botão preencher a largura do dropdown-filter */
-    }
-
-    .dropdown-menu {
-        min-width: 100%; /* Faz o menu dropdown ocupar 100% da largura em telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    .content-area {
-        padding: 15px;
-    }
-<<<<<<< HEAD
-
-    .search-bar {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .search-input, .search-icon, .filter-button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .article-card {
-        min-height: auto;
-    }
-
-    .article-tag {
-        position: static;
-        margin-bottom: 10px;
-        display: inline-block;
-    }
-
-    .article-card p:first-of-type {
-        margin-top: 10px;
-    }
-}
-/* Adicione este código ao final de css/layout_artigos.css */
-
-/* 1. Ajuste para o botão da lupa com SVG */
-.search-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-icon svg {
-    stroke: white; /* Cor do contorno do SVG */
-}
-
-/* 2. Estilos para o Dropdown */
-.dropdown {
-    position: relative; /* Necessário para posicionar o menu dropdown */
-    display: inline-block;
-}
-
-.dropdown .filter-button {
-    /* Opcional: Adiciona um pequeno espaço para a seta */
-    padding-right: 25px;
-}
-
-.dropdown-content {
-    display: none; /* Esconde o menu por padrão */
+.article-card:hover { z-index: 20; }
+.article-summary-popup {
+    background-color: #323232;
+    color: #ffffff;
+    border: 1px solid #444;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    border-radius: 8px;
+    box-sizing: border-box;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 5px;
-    overflow: hidden; /* Garante que os cantos dos links fiquem arredondados */
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    transform: scale(0.98);
+    z-index: 30;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.article-card:hover .article-summary-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+/* --- ESTILOS ESPECÍFICOS PARA DESKTOP --- */
+@media (min-width: 901px) {
+    .summary-show-right { left: calc(100% + 25px); right: auto; }
+    .summary-show-left { right: calc(100% + 25px); left: auto; }
+    .summary-align-top { top: 0; bottom: auto; }
+    .summary-align-bottom { top: auto; bottom: 0; }
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
-    color: #333;
+/* --- ESTILOS ESPECÍFICOS PARA MOBILE --- */
+@media (max-width: 900px) {
+    .articles-grid { grid-template-columns: 1fr; }
+    .article-summary-popup {
+        /* Garante que a prévia se posicione corretamente em relação ao card */
+        left: 0;
+        right: auto;
+    }
+    .summary-align-top { bottom: calc(100% + 10px); top: auto; }
+    .summary-align-bottom { top: calc(100% + 10px); bottom: auto; }
 }
 
-/* Mostra o menu quando passamos o mouse sobre o container do dropdown */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+/* --- Conteúdo da Prévia (Comum) --- */
+.article-summary-popup h4 { margin: 0 0 15px 0; font-size: 1.5em; font-weight: 700; color: #ffffff; }
+.article-summary-popup p { font-size: 1em; color: #dadada; line-height: 1.6; text-align: left; overflow-wrap: break-word; }
 
-/* 3. Estilo para o botão UFPR quando ativo */
-.filter-button.active {
-    background-color: #6A7056; /* Verde mais escuro, como solicitado */
-    border-color: #585c46;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-=======
-    /* Outras regras responsivas já existentes... */
->>>>>>> 83c54e4c034a7d288421351f5e533264e8bc5392
-}
+#no-results { display: none; text-align: center; width: 100%; padding: 50px; font-size: 1.2em; color: #777; }
+
+/* --- PAGINAÇÃO E RESPONSIVIDADE FINAL --- */
+.pagination-container { display: flex; justify-content: center; align-items: center; margin-top: 40px; gap: 8px; }
+.page-link { background-color: white; color: #4a4a3a; border: 1px solid #c0c090; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-family: 'Alegreya Sans', sans-serif; font-size: 1em; text-decoration: none; transition: background-color 0.3s ease, color 0.3s ease; }
+.page-link:hover { background-color: #e0e0c0; }
+.page-link.active { background-color: #929267; color: white; border-color: #929267; cursor: default; }
+.page-link.disabled { color: #aaa; border-color: #ddd; background-color: #f7f7f0; cursor: not-allowed; }
+
+@media (max-width: 768px) { .search-bar { flex-direction: column; align-items: stretch; } .search-input, .dropdown, #clear-filters-btn, #ufpr-filter-button { width: 100%; margin-bottom: 10px; box-sizing: border-box; } .filter-button { width: 100%; justify-content: center; } .dropdown-content { min-width: 100%; } }
+@media (max-width: 480px) { .content-area { padding: 15px; } .article-tag { position: static; margin-bottom: 10px; display: inline-block; } .article-card p:first-of-type { margin-top: 10px; } }
