@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corpo Consultivo - Boletim Paranaense de Geociências</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+   <link rel="stylesheet" href="{% static 'css/layout_institucional.css' %}">
+</head>
+<body>
+    <meu-header></meu-header>
+
+    <main class="container_principal">
+    <section class="secao_conteudo">
+        <h2 class="titulo_secao">Editores</h2>
+        <div class="grid_container">
+            
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Prof. Dr. Fábio Braz Machado</h4>
+                    <p class="cargo-editor">Editor Chefe</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Profa. Dra. Alessandra Bongiolo</h4>
+                    <p class="cargo-editor">Editora Associada</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Prof. Dr. Eduardo Salamuni</h4>
+                    <p class="cargo-editor">Editor Associado</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">MSc. Renato Eugenio Lima</h4>
+                    <p class="cargo-editor">Editor Associado</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Camila Pimentel de Carvalho</h4>
+                    <p class="cargo-editor">Editora Adjunta</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Inan Guilherme Senter</h4>
+                    <p class="cargo-editor">Editor Adjunto</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Caroline Figueiredo Rocha</h4>
+                    <p class="cargo-editor">Editora Adjunta</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Gustavo Dziura</h4>
+                    <p class="cargo-editor">Editor Adjunto</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'Logos - Parceiros/boy1.png' %}" alt="Foto do Prof. Dr. Fábio Braz Machado">
+                <div class="card-info">
+                    <h4 class="nome-editor">Leonardo Langner</h4>
+                    <p class="cargo-editor">Editor Adjunto</p>
+                </div>
+            </div>
+            
+            </div>
+    </section>
+
+    <section class="secao_conteudo">
+        <h2 class="titulo_secao">Corpo Consultivo</h2>
+        <div class="grid_container">
+    {% for editor in editores %}
+    <div class="card">
+        <img src="{{ editor.foto.url }}" alt="Foto de {{ editor.nome }}">
+        <div class="card-info">
+            <h4 class="nome-editor">{{ editor.nome }}</h4>
+            <p class="cargo-editor">{{ editor.cargo }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    </section>
+</main>
+    </main>
+
+    <meu-footer></meu-footer>
+
+    <script src="{% static 'js/meu-header.js' %}"></script>
+    <script src="{% static 'js/meu-footer.js' %}"></script>
+</body>
+</html>

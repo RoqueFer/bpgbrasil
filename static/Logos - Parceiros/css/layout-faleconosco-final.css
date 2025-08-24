@@ -1,0 +1,136 @@
+/* Este arquivo contém TUDO o que é necessário para o layout do conteúdo da página Fale Conosco */
+
+/* 1. Layout Principal do Conteúdo */
+/* Esta regra cria o bloco centralizado na página, como nas outras seções */
+.container-conteudo {
+    max-width: 1100px;
+    margin: 40px auto; /* 40px de margem em cima/baixo, e 'auto' para centralizar dos lados */
+    padding: 40px;
+    background-color: #f7f7f0; /* Um fundo branco-bege suave para o contêiner */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Estilo das Seções Internas */
+.secao-contato {
+    margin-bottom: 35px;
+}
+
+.secao-contato:last-child {
+    margin-bottom: 0;
+}
+
+.secao-contato h2 {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 1.7em;
+    font-weight: 700;
+    color: #4A4A4A;
+    border-bottom: 2px solid #B5B59C;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 3. Estilo Específico dos Elementos de Contato */
+.email-contato {
+    font-size: 1.1em;
+    background-color: #E0E0D1;
+    padding: 12px 18px;
+    border-radius: 5px;
+    display: inline-block; /* Faz o fundo se ajustar ao tamanho do texto */
+    border: 1px solid #C9C9B6;
+    color: #333;
+}
+
+/* ============================================= */
+/* ESTILOS DO FORMULÁRIO DE CONTATO              */
+/* (Versão Corrigida e Unificada)                */
+/* ============================================= */
+
+/*
+  Container do formulário.
+  Usamos flexbox com 'column' para garantir
+  que cada item (label, input) fique um abaixo do outro.
+*/
+.form-mensagem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+/*
+  Estilo dos rótulos (os textos "Seu email:", "Sua mensagem:").
+  Eles já são 'block' por padrão dentro de um flex-direction column,
+  então garantimos a fonte e o espaçamento.
+*/
+.form-mensagem label {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 1.2em; /* Um pouco maior para melhor leitura */
+  font-weight: 700;
+  color: #4A4A4A;
+  margin-bottom: 8px; /* Espaço entre o texto e a caixa de input */
+}
+
+/*
+  Estilo unificado para a caixa de email e a caixa de mensagem.
+*/
+.form-mensagem input[type="email"],
+.form-mensagem textarea {
+  width: 100%; /* Ocupa toda a largura disponível */
+  padding: 12px;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 1.1em;
+  border: 1px solid #B5B59C; /* Borda sutil para combinar com o h2 */
+  border-radius: 5px;
+  background-color: #fff;
+  box-sizing: border-box; /* Evita que o padding afete a largura total */
+  margin-bottom: 25px; /* Espaço maior abaixo de cada caixa */
+  transition: all 0.3s ease;
+}
+
+/*
+  Efeito de FOCO: Quando o usuário clica na caixa para digitar.
+*/
+.form-mensagem input[type="email"]:focus,
+.form-mensagem textarea:focus {
+  outline: none; /* Remove a borda padrão do navegador */
+  border-color: #79796A; /* Cor mais escura para destaque */
+  box-shadow: 0 0 8px rgba(121, 121, 106, 0.3); /* Sombra suave */
+}
+
+/*
+  Estilo específico para a caixa de mensagem (textarea).
+  Aqui está a mágica para resolver seus pedidos!
+*/
+.form-mensagem textarea {
+  height: 200px; /* Define uma altura fixa e significativa */
+  resize: none;  /* <<< IMPEDE que o usuário redimensione a caixa! */
+}
+
+/*
+  Estilo do botão de envio.
+*/
+.form-mensagem button[type="submit"] {
+  padding: 15px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #79796A; /* Cor que combina com o site */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start; /* Alinha o botão à esquerda do container */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.form-mensagem button[type="submit"]:hover {
+  background-color: #636356;
+  transform: translateY(-2px); /* Efeito de "saltar" */
+}
+
+/* Ícone dentro do botão */
+.form-mensagem button .fa-paper-plane {
+  margin-left: 10px;
+}
