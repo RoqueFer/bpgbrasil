@@ -1,1 +1,25 @@
-node_modules/
+# Arquivos de ambiente virtual
+venv/
+/venv/
+__pycache__/
+
+# Banco de dados de desenvolvimento
+*.sqlite3
+db.sqlite3
+
+# Arquivos de mídia (uploads dos usuários)
+/media/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDEs e editores
+.vscode/
+.idea/
+
+# Arquivos de dependências Python
+*.pyc
+
+# Arquivos de ambiente para senhas (ver Passo Extra abaixo)
+.env
