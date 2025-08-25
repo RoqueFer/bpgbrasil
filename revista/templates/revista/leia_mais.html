@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ artigo.titulo }} - Boletim Paranaense de Geociências</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout_leia-mais.css' %}">
+</head>
+<body>
+    <meu-header></meu-header>
+
+    <main>
+        <div class="main-content-wrapper">
+            <div class="container">
+                <div class="content-area">
+                    <article class="leia-mais-content">
+                        <header>
+                            <h1 class="leia-mais-title">{{ artigo.titulo }}</h1>
+                            <p class="leia-mais-meta">Publicado em {{ artigo.data_publicacao|date:"d \d\e F \d\e Y" }} por {{ artigo.autor }}</p>
+                        </header>
+
+                        <figure class="leia-mais-figure">
+                            <img src="{{ artigo.imagem.url }}" alt="{{ artigo.legenda_imagem }}" class="leia-mais-image">
+                            <figcaption>{{ artigo.legenda_imagem }}</figcaption>
+                        </figure>
+
+                        <div class="leia-mais-text">
+                            {{ artigo.conteudo|safe }}
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <meu-footer></meu-footer>
+
+    <script src="{% static 'js/meu-header.js' %}"></script>
+    <script src="{% static 'js/meu-footer.js' %}"></script>
+    
+    </body>
+</html>
