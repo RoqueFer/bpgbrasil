@@ -1,5 +1,3 @@
-// ARQUIVO: js/meu-header.js
-
 class MeuHeader extends HTMLElement {
     connectedCallback() {
         // O caminho para a logo agora precisa pensar a partir da raiz do site

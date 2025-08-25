@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+   <link rel="stylesheet" href="{% static 'css/layout_institucional.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="container_principal">
+        <section class="secao_conteudo">
+            <h2 class="titulo_secao">Corpo Consultivo</h2>
+            <div class="grid_container">
+                {% for editor in editores %}
+                <div class="card">
+                    <img src="{{ editor.foto.url }}" alt="Foto de {{ editor.nome }}">
+                    <div class="card-info">
+                        <h4 class="nome-editor">{{ editor.nome }}</h4>
+                        <p class="cargo-editor">{{ editor.cargo }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

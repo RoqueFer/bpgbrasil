@@ -19,24 +19,23 @@
 /* --- ALTERAÇÕES PRINCIPAIS COMEÇAM AQUI --- */
 
 .card {
-    /* REMOVIDO: background-color, height, width, border-radius, overflow.
-       O card agora é um container flexível e transparente para alinhar os itens. */
-    display: flex;
-    flex-direction: column; /* Empilha a imagem e o texto */
-    align-items: center;    /* Centraliza tudo horizontalmente */
-    text-align: center;
-    /* Mantivemos o efeito de transição do seu :hover original */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
 }
 
+.card:hover img {
+transform: translateY(-10px);
+}
 .card img {
-    /* A imagem agora se torna o círculo, com tamanho e bordas definidos */
     width: 160px;
     height: 160px;
     border-radius: 50%; /* Deixa a imagem redonda */
     object-fit: cover;  /* Garante que a foto preencha o círculo sem distorcer */
     border: 5px solid #d9d9d9; /* Usamos a cor do seu background anterior como borda */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 /* --- REGRAS NOVAS ADICIONADAS PARA O TEXTO --- */

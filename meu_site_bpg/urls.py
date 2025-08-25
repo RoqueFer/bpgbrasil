@@ -8,6 +8,7 @@ from django.conf.urls.static import static   # Importe static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('revista.urls')),
+    
 ]
 
 # Adicione esta linha no final do arquivo

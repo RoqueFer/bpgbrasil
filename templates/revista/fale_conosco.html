@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/layout_faleconosco.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-conteudo">
+    <div class="secao-contato">
+        <h2>Entre em contato pelo nosso email</h2>
+        <p class="email-contato">bpg.ufpr@gmail.com</p>
+    </div>
+
+    <div class="secao-contato">
+        <h2>Nos envie uma mensagem</h2>
+        <form class="form-mensagem" action="https://formspree.io/f/xblkgwzd" method="POST">
+            
+            <label for="email">Seu email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mensagem">Sua mensagem:</label>
+            <textarea id="mensagem" name="message" rows="6" required></textarea>
+            
+            <button type="submit">
+                Enviar Mensagem <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'revista/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/layout_artigos.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="main-content-wrapper">
+            <div class="container">
+                <div class="content-area">
+                    <div class="volume-section">
+                        <h3 class="volume-title" id="volume-title">Todos os Artigos</h3>
+                        <div class="articles-grid" id="articles-grid">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        // Seu script de filtros e paginação...
+    </script>
+{% endblock %}
