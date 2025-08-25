@@ -14,3 +14,28 @@ def corpo_consultivo(request):
 
     # 3. Renderiza o arquivo HTML, passando os dados do contexto
     return render(request, 'revista/consultivo.html', contexto)
+
+def home_page(request):
+
+    
+    return render(request, 'revista/home-page.html')
+
+def sobre_page(request):
+   
+    return render(request, 'revista/sobre.html')
+
+def fale_conosco_page(request):
+  
+    return render(request, 'revista/fale_conosco.html')
+
+def artigos_page(request):
+    """
+    View para a página de busca de artigos.
+    Inicialmente, apenas renderiza o template com os artigos estáticos.
+    """
+    # No futuro, você buscaria os artigos do banco de dados aqui
+    # artigos = Artigo.objects.all()
+    # contexto = {'artigos': artigos}
+    # return render(request, 'revista/procurePor.html', contexto)
+
+    return render(request, 'revista/procurePor.html')

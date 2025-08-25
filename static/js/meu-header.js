@@ -6,27 +6,25 @@ class MeuHeader extends HTMLElement {
         const logoPath = './Logos - Parceiros/LOGO ATUALIZADA SENHOR AMADO.png';
 
         this.innerHTML = `
-        <header>
-            <div class="container_madeira">
-                <a href="home-page.html" class="logo-link">
-                    <img src="${logoPath}" alt="Logo BPG Brasil - Ir para a página principal" class="logo">
-                </a>
-                <h1 class="header_font">Boletim Paranaense de Geociências</h1>
-            </div>
-            <div class="container_cinza">
-                <div class="container_menu">
-                    <a href="procurePor.html">Artigos</a>
-                    <p class="divisor">|</p>
-                    <a href="envie_seu_artigo.html">Envie seu Artigo</a>
-                    <p class="divisor">|</p>
-                    <a href="normas.html">Normas</a>
-                    <p class="divisor">|</p>
-                    <a href="consultivo.html">Consultivo</a>
-                    <p class="divisor">|</p>
-                    <a href="fale_conosco.html">Fale Conosco</a>
-                </div>
-            </div>
-        </header>
+        {% load static %}
+<div class="container_madeira">
+  <img src="{% static 'Logos - Parceiros/logo_final_final_3_final_definitivo_endgame.png' %}" alt="Logo BPG Braisl" class="logo">
+  <h1 class="header_font">Boletim Paranaense de Geociências</h1>
+</div>
+<div class="container_cinza">
+  <div class="container_menu">
+    {# Substitua 'nome_da_url' pelos nomes definidos no seu arquivo urls.py #}
+    <a href="{% url 'artigos' %}">Artigos</a>
+    <p class="divisor">|</p>
+    <a href="{% url 'envie_seu_artigo' %}">Envie seu Artigo</a>
+    <p class="divisor">|</p>
+    <a href="{% url 'normas' %}">Normas</a>
+    <p class="divisor">|</p>
+    <a href="{% url 'consultivo' %}">Consultivo</a>
+    <p class="divisor">|</p>
+    <a href="{% url 'fale_conosco' %}">Fale Conosco</a>
+  </div>
+</div>
         `;
     }
 }

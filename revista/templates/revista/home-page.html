@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-BR">
 
 <head>
@@ -14,8 +15,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/home-page.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}">
 
 </head>
 
@@ -29,7 +30,7 @@
                 <div class="image-carousel-track-container">
                     <div class="image-carousel-track">
                         <div class="image-carousel-slide">
-                            <img src="Logos - Parceiros\pico_paraná.jpg" alt="Imagem do carrossel 1">
+                            <img src="{% static 'Logos - Parceiros/pico_paraná.jpg' %}" alt="Imagem do carrossel 1">
                             <div class="image-info-overlay">
                                 <h3>Sobre o BPG</h3>
                                 <p>O Boletim paranaense de Geociências (BpG) é uma publicação do Programa de Pós-Graduação em Geologia da UFPR. Trata-se do periódico mais antigo do Brasil...</p>
@@ -37,7 +38,7 @@
                             </div>
                         </div>
                         <div class="image-carousel-slide">
-                            <img src="Logos - Parceiros/imagens de teste/pedra2.jpg" alt="Descrição da Imagem 2">
+                            <img src="{% static 'Logos - Parceiros/imagens de teste/pedra2.jpg' %}" alt="Descrição da Imagem 2">
                             <div class="image-info-overlay">
                                 <h3>Título do Destaque 2</h3>
                                 <p>Este é outro item interessante com detalhes adicionais. Consectetur adipiscing elit.
@@ -46,7 +47,7 @@
                             </div>
                         </div>
                         <div class="image-carousel-slide">
-                            <img src="Logos - Parceiros/imagens de teste/PEDRA3.jpg" alt="Descrição da Imagem 3">
+                            <img src="{% static 'Logos - Parceiros/imagens de teste/PEDRA3.jpg' %}" alt="Descrição da Imagem 3">
                             <div class="image-info-overlay">
                                 <h3>Título do Destaque 3</h3>
                                 <p>Mais informações relevantes aqui. Sed do eiusmod tempor incididunt ut labore et
@@ -55,7 +56,7 @@
                             </div>
                         </div>
                         <div class="image-carousel-slide">
-                            <img src="Logos - Parceiros/imagens de teste/PEDRA4.jpg" alt="Descrição da Imagem 4">
+                            <img src="{% static 'Logos - Parceiros/imagens de teste/PEDRA4.jpg' %}" alt="Descrição da Imagem 4">
                             <div class="image-info-overlay">
                                 <h3>Título do Destaque 4</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -76,24 +77,24 @@
                 <div class="icon-carousel-track-container">
                     <div class="icon-carousel-track">
                         <a href="#" class="icon-carousel-slide">
-                            <img src="Logos - Parceiros/Elsevier/elsevier-ar21.svg" alt="Ícone de Geologia">
+                            <img src="{% static 'Logos - Parceiros/Elsevier/elsevier-ar21.svg' %}" alt="Ícone de Geologia">
                             <p>Elsevier</p>
                         </a>
                         <a href="#" class="icon-carousel-slide">
-                            <img src="Logos - Parceiros/pet_geologia.jpg" alt="Ícone de Paleontologia">
+                            <img src="{% static 'Logos - Parceiros/pet_geologia.jpg' %}" alt="Ícone de Paleontologia">
                             <p>Pet-geologia</p>
                         </a>
                         <a href="#" class="icon-carousel-slide">
-                            <img src="Logos - Parceiros/Geologia_ufpr_grad.jpg" alt="Ícone de Hidrologia">
+                            <img src="{% static 'Logos - Parceiros/Geologia_ufpr_grad.jpg' %}" alt="Ícone de Hidrologia">
                             <p>Geologia UFPR</p>
                         </a>
                         <a href="#" class="icon-carousel-slide">
-                            <img src="Logos - Parceiros/UFPRLogo_oficial_da_UFPR_(fundo_branco).svg.png"
+                            <img src="{% static 'Logos - Parceiros/UFPRLogo_oficial_da_UFPR_(fundo_branco).svg.png' %}"
                                 alt="Ícone de Topografia">
                             <p>UFPR</p>
                         </a>
                         <a href="#" class="icon-carousel-slide">
-                            <img src="Logos - Parceiros/pos-geologia.png" alt="Ícone de Meio Ambiente">
+                            <img src="{% static 'Logos - Parceiros/pos-geologia.png' %}" alt="Ícone de Meio Ambiente">
                             <p>Pós-geologia UFPR</p>
                         </a>
                     </div>
@@ -107,9 +108,9 @@
 
     <meu-footer></meu-footer>
 
-    <script src="js/meu-header.js"></script>
-    <script src="js/meu-footer.js"></script>
-    <script src="js/homePage-Carousel.js"></script>
+    <script src="{% static 'js/meu-header.js' %}"></script>
+    <script src="{% static 'js/meu-footer.js' %}"></script>
+    <script src="{% static 'js/homePage-Carousel.js' %}"></script>
 </body>
 
 </html>
