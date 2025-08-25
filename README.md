@@ -53,15 +53,6 @@ Você saberá que funcionou quando vir `(venv)` no início do seu terminal.
 
 ### 4\. Instale as Dependências
 
-Crie um arquivo `requirements.txt` para que outros possam instalar as mesmas dependências que você.
-
-**Para o dono do projeto (faça isso uma vez antes de commitar):**
-
-```bash
-pip freeze > requirements.txt
-```
-
-**Para todos os outros (e para o dono, depois de clonar):**
 Instale todas as bibliotecas necessárias com um único comando:
 
 ```bash
