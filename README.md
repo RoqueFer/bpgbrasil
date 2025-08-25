@@ -1,9 +1,3 @@
-Com certeza\! Um bom `README.md` é essencial para a colaboração. Preparei uma versão completa e atualizada, explicando passo a passo como um novo desenvolvedor pode configurar e rodar o projeto com a nova estrutura Django.
-
-É só copiar e colar o conteúdo abaixo no seu arquivo `README.md`.
-
------
-
 # BPG Brasil
 
 Repositório para o projeto do desenvolvimento do site do Boletim Paranaense de Geociências (BPG).
