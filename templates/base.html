@@ -7,15 +7,17 @@
     <title>Boletim Paranaense de Geociências</title>
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% block extra_css %}{% endblock %} </head>
+    {% block extra_css %}{% endblock %} 
+</head>
 <body>
 
-    {% include 'revista/header.html' %}
+    {% include 'header.html' %}
 
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    {% block extra_js %}{% endblock %} </body>
+    {% include 'footer.html' %} {% block extra_js %}{% endblock %} 
+</body>
 </html>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <html lang="pt-br">
 
 <head>
@@ -14,11 +17,10 @@
     href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap"
     rel="stylesheet" />
 
-  <!-- ÍCONES (Font Awesome) - LINHA ADICIONADA -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout_env.css" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/layout_env.css' %}" />
 </head>
 
 <body>
@@ -100,7 +102,7 @@
           </ul>
 
           <div class="actions-container">
-            <a href="procurePor.html" class="button-link">Ver Todas as Edições</a>
+            <a href="{% url 'lista_artigos' %}" class="button-link">Ver Todas as Edições</a>
           </div>
         </section>
 
@@ -139,3 +141,4 @@
 </body>
 
 </html>
+{% endblock %}
