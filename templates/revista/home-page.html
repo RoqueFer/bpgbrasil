@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main class="homepage-main-content">
+        <section class="image-carousel-section">
+            <div class="image-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="image-carousel-track-container">
+                    <div class="image-carousel-track">
+                        <div class="image-carousel-slide">
+                            <img src="{% static 'Logos - Parceiros/pico_paraná.jpg' %}" alt="Imagem do carrossel 1">
+                            <div class="image-info-overlay">
+                                <h3>Sobre o BPG</h3>
+                                <p>O Boletim paranaense de Geociências (BpG) é uma publicação do Programa de Pós-Graduação em Geologia da UFPR...</p>
+                                <a href="#" class="read-more-button">Leia Mais</a>
+                            </div>
+                        </div>
+                         </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+            <div class="carousel-dots-container image-dots"></div>
+        </section>
+
+        <section class="icon-carousel-section">
+            </section>
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/homePage-Carousel.js' %}"></script>
+{% endblock %}

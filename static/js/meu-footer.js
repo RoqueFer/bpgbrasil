@@ -21,7 +21,7 @@ class MeuFooter extends HTMLElement {
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 Boletim Paranaense de Geociências. Todos os direitos reservados.</p>
+                    <p>&copy; 2025 Casa de Júniors. Todos os direitos reservados.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>

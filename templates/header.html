@@ -1,0 +1,22 @@
+{% load static %}
+<header>
+    <div class="container_madeira">
+        <a href="{% url 'home' %}" class="logo-link">
+            <img src="{% static 'Logos - Parceiros/LOGO ATUALIZADA SENHOR AMADO.png' %}" alt="Logo BPG Brasil" class="logo">
+        </a>
+        <h1 class="header_font">Boletim Paranaense de Geociências</h1>
+    </div>
+    <div class="container_cinza">
+        <div class="container_menu">
+            <a href="{% url 'lista_artigos' %}">Artigos</a>
+            <p class="divisor">|</p>
+            <a href="{% url 'envie_artigo' %}">Envie seu Artigo</a>
+            <p class="divisor">|</p>
+            <a href="{% url 'normas' %}">Normas</a>
+            <p class="divisor">|</p>
+            <a href="{% url 'corpo_consultivo' %}">Consultivo</a>
+            <p class="divisor">|</p>
+            <a href="{% url 'fale_conosco' %}">Fale Conosco</a>
+        </div>
+    </div>
+</header>
