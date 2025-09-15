@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{# Bloco para carregar um CSS customizado #}
+{% block extrastyle %}
+  <link rel="stylesheet" href="{% static 'css/admin_custom.css' %}">
+{% endblock %}
+
+{# Bloco que define o título principal no cabeçalho #}
+{% block branding %}
+<div>
+    <a href="{% url 'admin:index' %}">
+        <h1>Painel BPG Brasil</h1>
+    </a>
+</div>
+{% endblock %}
+
+{# Bloco que altera o texto no topo da aba do navegador #}
+{% block title %}
+  Administração do BPG Brasil
+{% endblock %}

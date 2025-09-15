@@ -1,7 +1,5 @@
-# ARQUIVO: revista/urls.py
-
 from django.urls import path
-from . import views  # <--- ESTA É A LINHA QUE ESTAVA FALTANDO!
+from . import views 
 
 urlpatterns = [
     path('', views.home, name='home'),

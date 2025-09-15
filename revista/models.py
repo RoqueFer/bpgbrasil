@@ -8,7 +8,7 @@ class Artigo(models.Model):
     ano = models.IntegerField()
     volume = models.CharField(max_length=100)
     resumo = models.TextField()
-    # arquivo_pdf = models.FileField(upload_to='pdfs/') # Descomente depois para uploads
+    arquivo_pdf = models.FileField(upload_to='pdfs/')
 
     def __str__(self):
         return self.titulo
@@ -16,7 +16,7 @@ class Artigo(models.Model):
 class Editor(models.Model):
     nome = models.CharField(max_length=150)
     cargo = models.CharField(max_length=100)
-    foto = models.ImageField(upload_to='fotos_editores/') # Para uploads de imagem
+    foto = models.ImageField(upload_to='fotos_editores/')
 
     def __str__(self):
         return self.nome
