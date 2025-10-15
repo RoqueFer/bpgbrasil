@@ -213,7 +213,7 @@ main {
 
 /* --- Conteúdo da Prévia (Comum) --- */
 .article-summary-popup h4 { margin: 0 0 15px 0; font-size: 1.5em; font-weight: 700; color: #ffffff; }
-.article-summary-popup p { font-size: 1em; color: #dadada; line-height: 1.6; text-align: left; overflow-wrap: break-word; }
+.article-summary-popup p { font-size: 1em; color: #dadada; line-height: 1.6; text-align: left; overflow-wrap: break-word; word-wrap: break-word; }
 
 #no-results { display: none; text-align: center; width: 100%; padding: 50px; font-size: 1.2em; color: #777; }
 
