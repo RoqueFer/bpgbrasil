@@ -1,7 +1,7 @@
 # revista/views.py
 
 from django.shortcuts import render
-from .models import Editor # Importe o modelo Editor
+from .models import Editor, Artigo # Importe o modelo Editor
 
 def corpo_consultivo(request):
     # 1. Busca todos os objetos do tipo Editor no banco de dados
@@ -22,10 +22,19 @@ def fale_conosco(request):
 def home(request):
     return render(request, 'revista/home-page.html')
 
+# --- FUNÇÃO MODIFICADA ---
 def lista_artigos(request):
-    # Por enquanto, apenas renderiza o template procurePor.html
-    return render(request, 'revista/procurePor.html')
+    # 2. Busca todos os objetos do tipo Artigo no banco de dados
+    todos_os_artigos = Artigo.objects.all().order_by('-ano', '-volume') # Ordena por mais recente
 
+    # 3. Cria o contexto com os dados para enviar ao template
+    contexto = {
+        'artigos': todos_os_artigos
+    }
+
+    # 4. Renderiza o template, passando a lista de artigos
+    return render(request, 'revista/procurePor.html', contexto)
+# -------------------------
 def envie_artigo(request):
     # Por enquanto, apenas renderiza o template envie_seu_artigo.html
     return render(request, 'revista/envie_seu_artigo.html')

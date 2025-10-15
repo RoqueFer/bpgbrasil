@@ -8,7 +8,7 @@ class Artigo(models.Model):
     ano = models.IntegerField()
     volume = models.CharField(max_length=100)
     resumo = models.TextField()
-    # arquivo_pdf = models.FileField(upload_to='pdfs/') # Descomente depois para uploads
+    arquivo_pdf = models.FileField(upload_to='pdfs/') # Descomente depois para uploads
 
     def __str__(self):
         return self.titulo

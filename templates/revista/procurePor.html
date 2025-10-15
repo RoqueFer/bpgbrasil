@@ -6,19 +6,39 @@
 {% endblock %}
 
 {% block content %}
-    <main>
-        <div class="main-content-wrapper">
-            <div class="container">
-                <div class="content-area">
-                    <div class="volume-section">
-                        <h3 class="volume-title" id="volume-title">Todos os Artigos</h3>
-                        <div class="articles-grid" id="articles-grid">
-                            </div>
-                    </div>
+<main>
+    <div class="main-content-wrapper">
+        <div class="container">
+            <div class="content-area">
+                <div class="volume-section">
+                    <h3 class="volume-title" id="volume-title">Todos os Artigos</h3>
+                    <div class="articles-grid" id="articles-grid">
+                        
+                        {% for artigo in artigos %}
+                            <article class="article-card">
+                                <h4 class="article-title">{{ artigo.titulo }}</h4>
+                                <p class="article-authors">{{ artigo.autores }}</p>
+                                <div class="article-meta">
+                                    <span><strong>Ano:</strong> {{ artigo.ano }}</span>
+                                    <span><strong>Volume:</strong> {{ artigo.volume }}</span>
+                                </div>
+                                <p class="article-summary">{{ artigo.resumo|truncatewords:30 }}</p>
+                                {% if artigo.doi %}
+                                    <a href="https://doi.org/{{ artigo.doi }}" class="article-link" target="_blank">Ver Artigo (DOI)</a>
+                                {% endif %}
+                                {# {% if artigo.arquivo_pdf %}
+                                    <a href="{{ artigo.arquivo_pdf.url }}" class="article-link" target="_blank">Baixar PDF</a>
+                                {% endif %} #}
+                            </article>
+                        {% empty %}
+                            <p>Nenhum artigo encontrado.</p>
+                        {% endfor %}
+                        </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 {% endblock %}
 
 {% block extra_js %}

@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
                 ('ano', models.IntegerField()),
                 ('volume', models.CharField(max_length=100)),
                 ('resumo', models.TextField()),
+                ('arquivo_pdf', models.FileField(upload_to='pdfs/')),
             ],
         ),
     ]
