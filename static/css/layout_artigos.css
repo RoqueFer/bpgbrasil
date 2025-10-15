@@ -159,11 +159,7 @@ main {
 .article-card p { margin: 5px 0; font-size: 0.95em; color: #555; line-height: 1.4; }
 .article-card p:first-of-type { margin-top: 25px; }
 
-/* --- LÓGICA DE FOCO E PRÉVIA (COMUM) --- */
-.articles-grid:has(.article-card:hover) .article-card:not(:hover) {
-    opacity: 0.5;
-    filter: blur(3px);
-}
+
 .article-card:hover { z-index: 20; }
 .article-summary-popup {
     background-color: #323232;
@@ -184,11 +180,34 @@ main {
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.article-card:hover .article-summary-popup {
+
+/* Melhora o espaçamento interno e organização dos cards de artigo */
+.article-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px; /* Adiciona um espaço entre os blocos de texto e os links */
+}
+/* Estilo do novo link "Resumo" */
+.summary-toggle {
+    cursor: pointer;
+    font-weight: bold;
+    color: #0056b3;
+    text-decoration: underline;
+    margin-right: 15px; /* Espaço para separar dos outros links */
+}
+
+/* Nova regra para exibir o pop-up quando o card tiver a classe 'summary-visible' */
+.article-card.summary-visible .article-summary-popup {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
     pointer-events: auto;
+}
+/* Garante a quebra de linha no resumo do pop-up */
+.article-summary-popup p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* --- ESTILOS ESPECÍFICOS PARA DESKTOP --- */

@@ -15,24 +15,33 @@
                     <div class="articles-grid" id="articles-grid">
                         
                         {% for artigo in artigos %}
-                            <article class="article-card">
-                                <h4 class="article-title">{{ artigo.titulo }}</h4>
-                                <p class="article-authors">{{ artigo.autores }}</p>
-                                <div class="article-meta">
-                                    <span><strong>Ano:</strong> {{ artigo.ano }}</span>
-                                    <span><strong>Volume:</strong> {{ artigo.volume }}</span>
-                                </div>
-                                <p class="article-summary">{{ artigo.resumo|truncatewords:30 }}</p>
-                                {% if artigo.doi %}
-                                    <a href="https://doi.org/{{ artigo.doi }}" class="article-link" target="_blank">Ver Artigo (DOI)</a>
-                                {% endif %}
-                                {# {% if artigo.arquivo_pdf %}
-                                    <a href="{{ artigo.arquivo_pdf.url }}" class="article-link" target="_blank">Baixar PDF</a>
-                                {% endif %} #}
-                            </article>
-                        {% empty %}
-                            <p>Nenhum artigo encontrado.</p>
-                        {% endfor %}
+<article class="article-card">
+    <div>
+        <p><strong>{{ artigo.titulo }}</strong></p>
+        <p>{{ artigo.autores }}</p>
+        <p>Ano: {{ artigo.ano }} | Volume: {{ artigo.volume }}</p>
+    </div>
+    
+    <div>
+        <a href="#" class="summary-toggle">Resumo</a>
+
+        {% if artigo.doi %}
+            <a href="https://doi.org/{{ artigo.doi }}" target="_blank">Ver Artigo (DOI)</a>
+        {% endif %}
+        
+        {% if artigo.arquivo_pdf %}
+            <a href="{{ artigo.arquivo_pdf.url }}" target="_blank">Baixar PDF</a>
+        {% endif %}
+    </div>
+
+    <div class="article-summary-popup">
+        <h4>Resumo</h4>
+        <p>{{ artigo.resumo }}</p>
+    </div>
+</article>
+{% empty %}
+    <p>Nenhum artigo encontrado.</p>
+{% endfor %}
                         </div>
                 </div>
             </div>
@@ -42,7 +51,43 @@
 {% endblock %}
 
 {% block extra_js %}
-    <script>
-        // Seu script de filtros e paginação...
-    </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const articlesGrid = document.querySelector('.articles-grid');
+
+    // Escutador de clique principal no container dos artigos
+    articlesGrid.addEventListener('click', function(event) {
+        const toggle = event.target.closest('.summary-toggle');
+        
+        // Se o clique foi em um link "Resumo"
+        if (toggle) {
+            event.preventDefault(); // Previne a ação padrão do link
+            const currentCard = toggle.closest('.article-card');
+            const isVisible = currentCard.classList.contains('summary-visible');
+
+            // 1. Fecha todos os outros resumos que possam estar abertos
+            document.querySelectorAll('.article-card.summary-visible').forEach(card => {
+                card.classList.remove('summary-visible');
+            });
+
+            // 2. Se o resumo clicado não estava visível, ele o torna visível
+            if (!isVisible) {
+                currentCard.classList.add('summary-visible');
+            }
+            // Se já estava visível, o passo anterior já o fechou.
+        }
+    });
+
+    // 3. Escutador de clique no documento inteiro para fechar ao clicar fora
+    document.addEventListener('click', function(event) {
+        // Se o clique NÃO foi dentro de um card de artigo
+        if (!event.target.closest('.article-card')) {
+            // Remove a classe de todos os cards que estiverem com o resumo visível
+            document.querySelectorAll('.article-card.summary-visible').forEach(card => {
+                card.classList.remove('summary-visible');
+            });
+        }
+    });
+});
+</script>
 {% endblock %}
