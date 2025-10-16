@@ -20,15 +20,17 @@
                 <button class="carousel-button prev">&#10094;</button>
                 <div class="image-carousel-track-container">
                     <div class="image-carousel-track">
-                        <div class="image-carousel-slide">
-                            <img src="{% static 'Logos - Parceiros/pico_paraná.jpg' %}" alt="Imagem do carrossel 1">
-                            <div class="image-info-overlay">
-                                <h3>Sobre o BPG</h3>
-                                <p>O Boletim paranaense de Geociências (BpG) é uma publicação do Programa de Pós-Graduação em Geologia da UFPR...</p>
-                                <a href="#" class="read-more-button">Leia Mais</a>
+                        {% for slide in slides %}
+                            <div class="image-carousel-slide">
+                                <img src="{{ slide.imagem.url }}" alt="{{ slide.titulo }}">
+                                <div class="image-info-overlay">
+                                    <h3>{{ slide.titulo }}</h3>
+                                    <p>{{ slide.descricao }}</p>
+                                    <a href="{{ slide.link_leia_mais }}" class="read-more-button">Leia Mais</a>
+                                </div>
                             </div>
-                        </div>
-                         </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 <button class="carousel-button next">&#10095;</button>
             </div>

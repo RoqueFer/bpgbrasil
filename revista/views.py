@@ -1,7 +1,9 @@
 # revista/views.py
 
 from django.shortcuts import render
-from .models import Editor, Artigo # Importe o modelo Editor
+from .models import Editor, Artigo, SlideCarrossel # Importe o modelo Editor
+
+
 
 def corpo_consultivo(request):
     # 1. Busca todos os objetos do tipo Editor no banco de dados
@@ -20,8 +22,10 @@ def fale_conosco(request):
 
 
 def home(request):
-    return render(request, 'revista/home-page.html')
-
+    slides = SlideCarrossel.objects.all()
+    context = {'slides': slides}
+    return render(request, 'revista/home-page.html', context)
+    
 # --- FUNÇÃO MODIFICADA ---
 def lista_artigos(request):
     # 2. Busca todos os objetos do tipo Artigo no banco de dados
