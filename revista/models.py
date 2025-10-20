@@ -26,7 +26,14 @@ class SlideCarrossel(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField()
     imagem = models.ImageField(upload_to='slides/')
-    link_leia_mais = models.URLField()
+    slug = models.SlugField(max_length=110, unique=True, blank=True, help_text="Identificador único para URL (será preenchido automaticamente se deixado em branco)")
+    conteudo_detalhado = models.TextField(blank=True, help_text="Conteúdo completo que aparecerá na página 'Leia Mais'.")
+
+    def save(self, *args, **kwargs):
+        # Gera o slug automaticamente a partir do título se estiver em branco
+        if not self.slug:
+            self.slug = slugify(self.titulo)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.titulo

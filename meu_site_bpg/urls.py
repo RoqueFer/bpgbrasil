@@ -5,7 +5,9 @@ from django.urls import path, include
 from django.conf import settings             # Importe settings
 from django.conf.urls.static import static   # Importe static
 
-
+admin.site.site_header = "BPG Admin"          # Muda o cabeçalho principal
+admin.site.site_title = "Administração BPG"   # Muda o título da aba do navegador
+admin.site.index_title = "Bem-vindo ao Painel BPG" # Muda o título da página inicial do admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('revista.urls')),

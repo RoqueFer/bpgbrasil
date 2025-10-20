@@ -2,7 +2,8 @@
 
 from django.shortcuts import render
 from .models import Editor, Artigo, SlideCarrossel # Importe o modelo Editor
-
+from django.shortcuts import render, get_object_or_404 
+from django.utils.text import slugify
 
 
 def corpo_consultivo(request):
@@ -46,3 +47,13 @@ def envie_artigo(request):
 def normas(request):
     # Por enquanto, apenas renderiza o template normas.html
     return render(request, 'revista/normas.html')
+
+def slide_detalhe(request, slug):
+    """
+    Exibe a página de detalhes para um slide específico do carrossel.
+    """
+    slide = get_object_or_404(SlideCarrossel, slug=slug) # Busca o slide pelo slug ou retorna erro 404
+    contexto = {
+        'slide': slide
+    }
+    return render(request, 'revista/slide_detalhe.html', contexto)

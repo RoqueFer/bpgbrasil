@@ -26,7 +26,9 @@
                                 <div class="image-info-overlay">
                                     <h3>{{ slide.titulo }}</h3>
                                     <p>{{ slide.descricao }}</p>
-                                    <a href="{{ slide.link_leia_mais }}" class="read-more-button">Leia Mais</a>
+                                    {# --- LINHA MODIFICADA --- #}
+                                    <a href="{% url 'slide_detalhe' slug=slide.slug %}" class="read-more-button">Leia Mais</a>
+                                    {# ------------------------- #}
                                 </div>
                             </div>
                         {% endfor %}

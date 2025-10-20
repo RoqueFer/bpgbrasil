@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    {# Você pode usar um CSS existente ou criar um novo para esta página #}
+    <link rel="stylesheet" href="{% static 'css/layout_leia-mais.css' %}"> 
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="main-content-wrapper">
+        <div class="container">
+            <div class="content-area">
+                {# Adapte a classe conforme seu CSS #}
+                <article class="leia-mais-content"> 
+                    <header>
+                        <h1 class="leia-mais-title">{{ slide.titulo }}</h1>
+                    </header>
+
+                    {% if slide.imagem %}
+                    <figure class="leia-mais-figure">
+                        <img src="{{ slide.imagem.url }}" alt="{{ slide.titulo }}" class="leia-mais-image">
+                    </figure>
+                    {% endif %}
+
+                    <div class="leia-mais-text">
+                        {# Exibe o conteúdo detalhado. |safe é usado se você permitir HTML #}
+                        {# Se não usar HTML no admin, pode remover o |safe #}
+                        {{ slide.conteudo_detalhado|safe }} 
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
