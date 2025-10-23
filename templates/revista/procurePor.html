@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/layout_artigos.css' %}">
-      <link
+<link rel="stylesheet" href="{% static 'css/layout_artigos.css' %}">
+<link
     href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/layout_env.css' %}" />
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'css/layout_env.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -21,36 +21,36 @@
                 <div class="volume-section">
                     <h3 class="volume-title" id="volume-title">Todos os Artigos</h3>
                     <div class="articles-grid" id="articles-grid">
-                        
+
                         {% for artigo in artigos %}
-<article class="article-card">
-    <div>
-        <p><strong>{{ artigo.titulo }}</strong></p>
-        <p>{{ artigo.autores }}</p>
-        <p>Ano: {{ artigo.ano }} | Volume: {{ artigo.volume }}</p>
-    </div>
-    
-    <div>
-        <a href="#" class="summary-toggle">Resumo</a>
+                        <article class="article-card">
+                            <div>
+                                <p><strong>{{ artigo.titulo }}</strong></p>
+                                <p>{{ artigo.autores }}</p>
+                                <p>Ano: {{ artigo.ano }} | Volume: {{ artigo.volume }}</p>
+                            </div>
 
-        {% if artigo.doi %}
-            <a href="https://doi.org/{{ artigo.doi }}" target="_blank">Ver Artigo (DOI)</a>
-        {% endif %}
-        
-        {% if artigo.arquivo_pdf %}
-            <a href="{{ artigo.arquivo_pdf.url }}" target="_blank">Baixar PDF</a>
-        {% endif %}
-    </div>
+                            <div>
+                                <a href="#" class="summary-toggle">Resumo</a>
 
-    <div class="article-summary-popup">
-        <h4>Resumo</h4>
-        <p>{{ artigo.resumo }}</p>
-    </div>
-</article>
-{% empty %}
-    <p>Nenhum artigo encontrado.</p>
-{% endfor %}
-                        </div>
+                                {% if artigo.doi %}
+                                <a href="https://doi.org/{{ artigo.doi }}" target="_blank">Ver Artigo (DOI)</a>
+                                {% endif %}
+
+                                {% if artigo.arquivo_pdf %}
+                                <a href="{{ artigo.arquivo_pdf.url }}" target="_blank">Baixar PDF</a>
+                                {% endif %}
+                            </div>
+
+                            <div class="article-summary-popup">
+                                <h4>Resumo</h4>
+                                <p>{{ artigo.resumo }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <p>Nenhum artigo encontrado.</p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,42 +60,42 @@
 
 {% block extra_js %}
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const articlesGrid = document.querySelector('.articles-grid');
+    document.addEventListener('DOMContentLoaded', () => {
+        const articlesGrid = document.querySelector('.articles-grid');
 
-    // Escutador de clique principal no container dos artigos
-    articlesGrid.addEventListener('click', function(event) {
-        const toggle = event.target.closest('.summary-toggle');
-        
-        // Se o clique foi em um link "Resumo"
-        if (toggle) {
-            event.preventDefault(); // Previne a ação padrão do link
-            const currentCard = toggle.closest('.article-card');
-            const isVisible = currentCard.classList.contains('summary-visible');
+        // Escutador de clique principal no container dos artigos
+        articlesGrid.addEventListener('click', function (event) {
+            const toggle = event.target.closest('.summary-toggle');
 
-            // 1. Fecha todos os outros resumos que possam estar abertos
-            document.querySelectorAll('.article-card.summary-visible').forEach(card => {
-                card.classList.remove('summary-visible');
-            });
+            // Se o clique foi em um link "Resumo"
+            if (toggle) {
+                event.preventDefault(); // Previne a ação padrão do link
+                const currentCard = toggle.closest('.article-card');
+                const isVisible = currentCard.classList.contains('summary-visible');
 
-            // 2. Se o resumo clicado não estava visível, ele o torna visível
-            if (!isVisible) {
-                currentCard.classList.add('summary-visible');
+                // 1. Fecha todos os outros resumos que possam estar abertos
+                document.querySelectorAll('.article-card.summary-visible').forEach(card => {
+                    card.classList.remove('summary-visible');
+                });
+
+                // 2. Se o resumo clicado não estava visível, ele o torna visível
+                if (!isVisible) {
+                    currentCard.classList.add('summary-visible');
+                }
+                // Se já estava visível, o passo anterior já o fechou.
             }
-            // Se já estava visível, o passo anterior já o fechou.
-        }
-    });
+        });
 
-    // 3. Escutador de clique no documento inteiro para fechar ao clicar fora
-    document.addEventListener('click', function(event) {
-        // Se o clique NÃO foi dentro de um card de artigo
-        if (!event.target.closest('.article-card')) {
-            // Remove a classe de todos os cards que estiverem com o resumo visível
-            document.querySelectorAll('.article-card.summary-visible').forEach(card => {
-                card.classList.remove('summary-visible');
-            });
-        }
+        // 3. Escutador de clique no documento inteiro para fechar ao clicar fora
+        document.addEventListener('click', function (event) {
+            // Se o clique NÃO foi dentro de um card de artigo
+            if (!event.target.closest('.article-card')) {
+                // Remove a classe de todos os cards que estiverem com o resumo visível
+                document.querySelectorAll('.article-card.summary-visible').forEach(card => {
+                    card.classList.remove('summary-visible');
+                });
+            }
+        });
     });
-});
 </script>
 {% endblock %}

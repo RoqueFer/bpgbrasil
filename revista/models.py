@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 
 class Artigo(models.Model):
     titulo = models.CharField(max_length=200)
@@ -28,6 +28,7 @@ class SlideCarrossel(models.Model):
     imagem = models.ImageField(upload_to='slides/')
     slug = models.SlugField(max_length=110, unique=True, blank=True, help_text="Identificador único para URL (será preenchido automaticamente se deixado em branco)")
     conteudo_detalhado = models.TextField(blank=True, help_text="Conteúdo completo que aparecerá na página 'Leia Mais'.")
+    slug = models.SlugField(max_length=110, unique=True, blank=True)    
 
     def save(self, *args, **kwargs):
         # Gera o slug automaticamente a partir do título se estiver em branco
