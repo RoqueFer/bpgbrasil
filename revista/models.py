@@ -38,3 +38,10 @@ class SlideCarrossel(models.Model):
 
     def __str__(self):
         return self.titulo
+class Parceiro(models.Model):
+    nome = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='logos_parceiros/')
+    link_externo = models.URLField(blank=True, help_text="Opcional: Link para o site do parceiro.") # Adicionamos um link opcional
+
+    def __str__(self):
+        return self.nome
