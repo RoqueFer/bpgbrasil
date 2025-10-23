@@ -1,7 +1,7 @@
 # revista/views.py
 
 from django.shortcuts import render
-from .models import Editor, Artigo, SlideCarrossel # Importe o modelo Editor
+from .models import Editor, Artigo, SlideCarrossel, Parceiro # Adicione Parceiro aqui
 from django.shortcuts import render, get_object_or_404 
 from django.utils.text import slugify
 
@@ -24,7 +24,8 @@ def fale_conosco(request):
 
 def home(request):
     slides = SlideCarrossel.objects.all()
-    context = {'slides': slides}
+    parceiros = Parceiro.objects.all()
+    context = {'slides': slides, 'parceiros': parceiros}
     return render(request, 'revista/home-page.html', context)
     
 # --- FUNÇÃO MODIFICADA ---

@@ -2,48 +2,75 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/home-page.css' %}">
-<link
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}">
+      <link
     href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Roboto:wght@700&family=Rubik+Dirt&display=swap"
     rel="stylesheet" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="{% static 'css/base.css' %}" />
-<link rel="stylesheet" href="{% static 'css/layout_env.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  {# Remova o layout_env.css duplicado se não for necessário aqui #}
 {% endblock %}
 
 {% block content %}
-<main class="homepage-main-content">
-    <section class="image-carousel-section">
-        <div class="image-carousel-container">
-            <button class="carousel-button prev">&#10094;</button>
-            <div class="image-carousel-track-container">
-                <div class="image-carousel-track">
-                    {% for slide in slides %}
-                    <div class="image-carousel-slide">
-                        <img src="{{ slide.imagem.url }}" alt="{{ slide.titulo }}">
-                        <div class="image-info-overlay">
-                            <h3>{{ slide.titulo }}</h3>
-                            <p>{{ slide.descricao }}</p>
-                            {# --- LINHA MODIFICADA --- #}
-                            <a href="{% url 'slide_detalhe' slug=slide.slug %}" class="read-more-button">Leia Mais</a>
-                            {# ------------------------- #}
-                        </div>
+    <main class="homepage-main-content">
+        {# Carrossel Principal (sem alterações) #}
+        <section class="image-carousel-section">
+            <div class="image-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="image-carousel-track-container">
+                    <div class="image-carousel-track">
+                        {% for slide in slides %}
+                            <div class="image-carousel-slide">
+                                <img src="{{ slide.imagem.url }}" alt="{{ slide.titulo }}">
+                                <div class="image-info-overlay">
+                                    <h3>{{ slide.titulo }}</h3>
+                                    <p>{{ slide.descricao }}</p>
+                                    <a href="{% url 'slide_detalhe' slug=slide.slug %}" class="read-more-button">Leia Mais</a>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p>Nenhum slide cadastrado.</p> 
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
+                <button class="carousel-button next">&#10095;</button>
             </div>
-            <button class="carousel-button next">&#10095;</button>
-        </div>
-        <div class="carousel-dots-container image-dots"></div>
-    </section>
+            <div class="carousel-dots-container image-dots"></div> 
+        </section>
 
-    <section class="icon-carousel-section">
-    </section>
-</main>
+        {# --- SEÇÃO DO CARROSSEL DE PARCEIROS --- #}
+        <section class="icon-carousel-section">
+            <h2 class="carousel-section-title">Nossos Parceiros</h2> 
+            <div class="icon-carousel-container">
+                <button class="carousel-button prev">&#10094;</button>
+                <div class="icon-carousel-track-container">
+                    <div class="icon-carousel-track">
+                        {% for parceiro in parceiros %}
+                            <div class="icon-carousel-slide">
+                                {% if parceiro.link_externo %}
+                                    <a href="{{ parceiro.link_externo }}" target="_blank">
+                                        <img src="{{ parceiro.logo.url }}" alt="Logo {{ parceiro.nome }}">
+                                    </a>
+                                {% else %}
+                                    <img src="{{ parceiro.logo.url }}" alt="Logo {{ parceiro.nome }}">
+                                {% endif %}
+                                <p>{{ parceiro.nome }}</p>
+                            </div>
+                        {% empty %}
+                            <p>Nenhum parceiro cadastrado.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+            <div class="carousel-dots-container icon-dots"></div> 
+        </section>
+        {# -------------------------------------- #}
+    </main>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/homePage-Carousel.js' %}"></script>
+    <script src="{% static 'js/homePage-Carousel.js' %}"></script>
 {% endblock %}
